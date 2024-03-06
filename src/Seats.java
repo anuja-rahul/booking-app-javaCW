@@ -1,4 +1,3 @@
-import java.sql.Struct;
 
 public class Seats {
     private char row;
