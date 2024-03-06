@@ -27,6 +27,13 @@ public class Main {
             if(getChoice(choice)){
                 if(choice != 0){
                     System.out.println("\nProceeding !\n");
+                    System.out.print("\nEnter your first name: ");
+                    String firstName = scan.next();
+                    System.out.print("\nEnter your surname: ");
+                    String surName = scan.next();
+                    System.out.print("\nEnter your email: ");
+                    String email = scan.next();
+                    Person user = new Person(firstName, surName, email);
                 }else{
                     System.out.println("\nClosing !\n");
                     break;
