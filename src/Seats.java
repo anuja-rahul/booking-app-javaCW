@@ -12,14 +12,42 @@ public class Seats {
         this.seat = row + column;
     }
 
+    // Getters
+
     public String[] getAllSeats(){
         return allSeats;
+    }
+
+    public char getRow(){
+        return row;
+    }
+
+    public String getColumn(){
+        return column;
+    }
+
+    public String getSeat(){
+        return seat;
     }
 
     public void printAllSeats(){
         for(String seat: getAllSeats()){
             System.out.print(seat + ", ");
         }
+    }
+
+    // Setters
+
+    public void setRow(char row){
+        this.row = row;
+    }
+
+    public void setColumn(String column){
+        this.column = column;
+    }
+
+    public void setSeat(){
+        this.seat = row + column;
     }
 
     private String[] assignAllSeats(){
