@@ -61,6 +61,7 @@ public class Seats {
             for(String column: columns){
                 if(checkArrayValues(row, shortRows)){
                     if(checkArrayValues(column, shortColumns)){
+                        // Do nothing
                         continue;
                     }else{
                         String newSeat = row + column;
@@ -75,14 +76,25 @@ public class Seats {
         return  allSeats;
     }
 
+    /**
+     * Adds a given item to the current array by assigning all the elements of
+     * the current array and the new value to a new array with a greater length than
+     * the current array and returns the new array.
+
+     * @param currentArray
+     *              array that need to be updated.
+     * @param value
+     *              new value that need to be added to the given array.
+     */
+    // Since dynamics arrays are prohibited in this coursework.
     private String[] updateArray(String[] currentArray, String value){
-        int newSize = currentArray.length +1;
-        String[] newArray = new String[newSize];
+        int newLength = currentArray.length +1;
+        String[] newArray = new String[newLength];
 
         for(int count = 0; count < currentArray.length; count++){
             newArray[count] = currentArray[count];
         }
-        newArray[newSize - 1] = value;
+        newArray[newLength - 1] = value;
         return newArray;
     }
 
