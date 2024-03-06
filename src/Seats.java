@@ -1,19 +1,28 @@
 
 public class Seats {
     private char row;
-    private int column;
-
+    private String column;
     private String seat;
 
-    public String[] allSeats = getAllSeats();
+    public String[] allSeats = assignAllSeats();
 
-    public Seats(char row, int column){
+    public Seats(char row, String column){
         this.row = row;
         this.column = column;
-        this.seat = row + String.valueOf(column);
+        this.seat = row + column;
     }
 
     public String[] getAllSeats(){
+        return allSeats;
+    }
+
+    public void printAllSeats(){
+        for(String seat: getAllSeats()){
+            System.out.print(seat + ", ");
+        }
+    }
+
+    private String[] assignAllSeats(){
         String[] columns = {"1", "2", "3", "4", "5", "6", "7", "8", "8", "9", "10", "11", "12", "13", "14"};
         String[] rows = {"A", "B", "C", "D"};
         String[] shortRows = {"B", "C"};

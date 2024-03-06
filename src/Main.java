@@ -34,6 +34,10 @@ public class Main {
                     System.out.print("\nEnter your email: ");
                     String email = scan.next();
                     Person user = new Person(firstName, surName, email);
+                    /*
+                    Seats seat = new Seats('1', "A");
+                    seat.printAllSeats();
+                    */
                 }else{
                     System.out.println("\nClosing !\n");
                     break;
