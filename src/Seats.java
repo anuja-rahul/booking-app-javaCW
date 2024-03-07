@@ -73,6 +73,7 @@ public class Seats {
         for(String openSeat: allSeats){
             if(!Functions.checkArrayValues(openSeat, bookedSeats)){
                 availableSeats = Functions.updateArray(availableSeats, openSeat);
+                // Fix this
             }
         }
     }
