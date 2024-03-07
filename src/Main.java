@@ -38,6 +38,7 @@ public class Main {
                     Seats seat = new Seats('1', "A");
                     seat.printAllSeats();
                     */
+                    
                 }else{
                     System.out.println("\nClosing !\n");
                     break;
