@@ -3,6 +3,11 @@ public class Main {
     // Scanner scan = new Scanner(System.in);
     public static void main(String[] args) {
 
+        String[] bookedSeats = {};
+
+        // construct a new DataHandler object to store all bookings and seat data
+        DataHandler dataBase = new DataHandler(bookedSeats);
+
         int choice = -1;
         while(choice !=0){
             Scanner scan = new Scanner(System.in);
@@ -46,11 +51,24 @@ public class Main {
                             char row = scan.next().charAt(0);
                             System.out.print("\nEnter the column (1-14): ");
                             String column = scan.next();
+
+                            String[] newBooking = {row + column};
+                            dataBase.addNewBookedSeat(newBooking);
+                            dataBase.updateAvailableSeats();
+
+                            String[] currentlyAvailableSeats = dataBase.getAvailableSeats();
+                            Functions.printArrays(currentlyAvailableSeats);
+
+                            /*
                             Seats boughtSeat = new Seats(row, column);
                             boughtSeat.addBooking();
                             boughtSeat.updateAvailableSeats();
-                            String[] availableSeats = boughtSeat.getAvailableSeats();
-                            boughtSeat.printArrays(availableSeats);
+                            String[] availableSeat = boughtSeat.getAvailableSeats();
+                            String[] booked = boughtSeat.getBookedSeats();
+                            boughtSeat.printArrays(booked);
+                            System.out.println("\n\n\n");
+                            boughtSeat.printArrays(availableSeat);
+                             */
 
                             // Do something more
 

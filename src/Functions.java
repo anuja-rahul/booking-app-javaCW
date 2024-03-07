@@ -24,6 +24,24 @@ public class Functions {
         return newArray;
     }
 
+    public static String[] removeFromArray(String[] currentArray, String value){
+        int count = 0;
+        for (String item: currentArray){
+            if (item.equals(value)){
+                count++;
+            }
+        }
+
+        String[] newArray = new String[currentArray.length - count];
+        int idx = 0;
+        for (String item: currentArray){
+            if (!item.equals(value)){
+                newArray[idx++] = item;
+            }
+        }
+        return newArray;
+    }
+
     /**
      * Checks a given value against a given array and returns true
      * if present and returns false if not found.
@@ -43,5 +61,37 @@ public class Functions {
             }
         }
         return result;
+    }
+
+
+    public static String[] assignAllSeats(){
+        String[] columns = {"1", "2", "3", "4", "5", "6", "7", "8", "8", "9", "10", "11", "12", "13", "14"};
+        String[] rows = {"A", "B", "C", "D"};
+        String[] shortRows = {"B", "C"};
+        String[] shortColumns = {"13", "14"};
+        String[] allSeats = {};
+        for(String row: rows){
+            for(String column: columns){
+                if(Functions.checkArrayValues(row, shortRows)){
+                    if(Functions.checkArrayValues(column, shortColumns)){
+                        // Do nothing
+                        continue;
+                    }else{
+                        String newSeat = row + column;
+                        allSeats = Functions.updateArray(allSeats, newSeat);
+                    }
+                }else{
+                    String newSeat = row + column;
+                    allSeats = Functions.updateArray(allSeats, newSeat);
+                }
+            }
+        }
+        return  allSeats;
+    }
+
+    public static void printArrays(String[] array){
+        for(String item: array){
+            System.out.print(item + ", ");
+        }
     }
 }

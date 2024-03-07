@@ -72,6 +72,8 @@ public class Seats {
         // Do something
         for(String openSeat: allSeats){
             if(!Functions.checkArrayValues(openSeat, bookedSeats)){
+                // Method update only the current seat
+                // Previous bookings not registered
                 availableSeats = Functions.updateArray(availableSeats, openSeat);
                 // Fix this
             }
