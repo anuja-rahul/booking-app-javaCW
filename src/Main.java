@@ -34,6 +34,7 @@ public class Main {
                     System.out.print("\nEnter your email: ");
                     String email = scan.next();
                     Person user = new Person(firstName, surName, email);
+
                     /*
                     Seats seat = new Seats('1', "A");
                     seat.printAllSeats();
@@ -41,9 +42,9 @@ public class Main {
 
                     switch (choice){
                         case 1:
-                            System.out.print("\nEnter the row: ");
+                            System.out.print("\nEnter the row (A-D): ");
                             char row = scan.next().charAt(0);
-                            System.out.print("\nEnter the column: ");
+                            System.out.print("\nEnter the column (1-14): ");
                             String column = scan.next();
                             Seats boughtSeat = new Seats(row, column);
                             boughtSeat.addBooking();
@@ -54,6 +55,7 @@ public class Main {
                             // Do something more
 
                         case 2:
+
                             // Do something else
                     }
 

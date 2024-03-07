@@ -23,22 +23,29 @@ public class Person {
         this.email = email;
     }
 
+    public void setSeats(String[] seats){
+        for(String seat: seats){
+
+        }
+    }
+
     // Getters
 
     public String getName(){
-        return name;
+        return this.name;
     }
 
     public String getSurname(){
-        return surname;
+        return this.surname;
     }
 
     public  String getEmail(){
-        return email;
+        return this.email;
     }
 
-    public String[] getPerson(){
+    public String[] getPersonData(){
         // returns an array of the Person object containing all the attributes.
-        return new String[]{name, surname, email};
+        return new String[]{this.name, this.surname, this.email};
     }
+
 }
