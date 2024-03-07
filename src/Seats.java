@@ -4,7 +4,11 @@ public class Seats {
     private String column;
     private String seat;
 
+    private String[] bookedSeats = {};
+
     public String[] allSeats = assignAllSeats();
+
+    public String[] availableSeats = {};
 
     public Seats(char row, String column){
         this.row = row;
@@ -13,10 +17,6 @@ public class Seats {
     }
 
     // Getters
-
-    public String[] getAllSeats(){
-        return allSeats;
-    }
 
     public char getRow(){
         return row;
@@ -30,9 +30,21 @@ public class Seats {
         return seat;
     }
 
-    public void printAllSeats(){
-        for(String seat: getAllSeats()){
-            System.out.print(seat + ", ");
+    public String[] getAllSeats(){
+        return allSeats;
+    }
+
+    public String[] getBookedSeats(){
+        return bookedSeats;
+    }
+
+    public String[] getAvailableSeats(){
+        return availableSeats;
+    }
+
+    public void printArrays(String[] array){
+        for(String item: array){
+            System.out.print(item + ", ");
         }
     }
 
@@ -48,6 +60,30 @@ public class Seats {
 
     public void setSeat(){
         this.seat = row + column;
+    }
+
+    // Public Methods
+    public void updateAvailableSeats(){
+        // Do something
+        for(String openSeat: allSeats){
+            if(!checkArrayValues(openSeat, bookedSeats)){
+                availableSeats = updateArray(availableSeats, openSeat);
+            }
+        }
+    }
+
+    public void addBooking(){
+        updateBookedSeats(this.seat);
+    }
+
+    // Private Methods
+
+    private void updateBookedSeats(String seat){
+        if(!checkArrayValues(seat, bookedSeats)){
+            bookedSeats = updateArray(bookedSeats, seat);
+        }else{
+            // DO nothing
+        }
     }
 
     private String[] assignAllSeats(){
