@@ -39,6 +39,19 @@ public class Main {
                     seat.printAllSeats();
                     */
 
+                    switch (choice){
+                        case 1:
+                            System.out.print("\nEnter the row: ");
+                            char row = scan.next().charAt(0);
+                            System.out.print("\nEnter the column: ");
+                            String column = scan.next();
+                            Seats buySeat = new Seats(row, column);
+                            buySeat.addBooking();
+                            buySeat.updateAvailableSeats();
+                            String[] availableSeats = buySeat.getAvailableSeats();
+                            buySeat.printArrays(availableSeats);
+                    }
+
                     
                 }else{
                     System.out.println("\nClosing !\n");

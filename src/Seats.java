@@ -4,6 +4,11 @@ public class Seats {
     private String column;
     private String seat;
 
+    String[] columns = {"1", "2", "3", "4", "5", "6", "7", "8", "8", "9", "10", "11", "12", "13", "14"};
+    String[] rows = {"A", "B", "C", "D"};
+    String[] shortRows = {"B", "C"};
+    String[] shortColumns = {"13", "14"};
+
     private String[] bookedSeats = {};
 
     public String[] allSeats = assignAllSeats();
@@ -84,12 +89,7 @@ public class Seats {
     // Private Methods
 
     private String[] assignAllSeats(){
-        String[] columns = {"1", "2", "3", "4", "5", "6", "7", "8", "8", "9", "10", "11", "12", "13", "14"};
-        String[] rows = {"A", "B", "C", "D"};
-        String[] shortRows = {"B", "C"};
-        String[] shortColumns = {"13", "14"};
         String[] allSeats = {};
-
         for(String row: rows){
             for(String column: columns){
                 if(checkArrayValues(row, shortRows)){
