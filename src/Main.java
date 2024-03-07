@@ -45,11 +45,11 @@ public class Main {
                             char row = scan.next().charAt(0);
                             System.out.print("\nEnter the column: ");
                             String column = scan.next();
-                            Seats buySeat = new Seats(row, column);
-                            buySeat.addBooking();
-                            buySeat.updateAvailableSeats();
-                            String[] availableSeats = buySeat.getAvailableSeats();
-                            buySeat.printArrays(availableSeats);
+                            Seats boughtSeat = new Seats(row, column);
+                            boughtSeat.addBooking();
+                            boughtSeat.updateAvailableSeats();
+                            String[] availableSeats = boughtSeat.getAvailableSeats();
+                            boughtSeat.printArrays(availableSeats);
                     }
 
                     
