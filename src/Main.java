@@ -50,6 +50,11 @@ public class Main {
                             boughtSeat.updateAvailableSeats();
                             String[] availableSeats = boughtSeat.getAvailableSeats();
                             boughtSeat.printArrays(availableSeats);
+
+                            // Do something more
+
+                        case 2:
+                            // Do something else
                     }
 
                     
