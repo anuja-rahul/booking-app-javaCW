@@ -63,6 +63,7 @@ public class Seats {
     }
 
     // Public Methods
+
     public void updateAvailableSeats(){
         // Do something
         for(String openSeat: allSeats){
@@ -73,18 +74,14 @@ public class Seats {
     }
 
     public void addBooking(){
-        updateBookedSeats(this.seat);
-    }
-
-    // Private Methods
-
-    private void updateBookedSeats(String seat){
-        if(!checkArrayValues(seat, bookedSeats)){
-            bookedSeats = updateArray(bookedSeats, seat);
+        if(!checkArrayValues(this.seat, bookedSeats)){
+            bookedSeats = updateArray(bookedSeats, this.seat);
         }else{
             // DO nothing
         }
     }
+
+    // Private Methods
 
     private String[] assignAllSeats(){
         String[] columns = {"1", "2", "3", "4", "5", "6", "7", "8", "8", "9", "10", "11", "12", "13", "14"};
