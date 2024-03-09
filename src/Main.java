@@ -55,23 +55,11 @@ public class Main {
                             dataBase.addNewBookedSeat(newBooking);
                             dataBase.updateAvailableSeats();
 
-                            String[] currentlyAvailableSeats = dataBase.getAvailableSeats();
-                            Functions.printArrays(currentlyAvailableSeats);
+                            // String[] currentlyAvailableSeats = dataBase.getAvailableSeats();
+                            // Functions.printArrays(currentlyAvailableSeats);
                             dataBase.updateSeatRecord(newBooking);
                             // Functions.printDoubleArrays(dataBase.seatRecord);
                             break;
-
-                            /*
-                            Seats boughtSeat = new Seats(row, column);
-                            boughtSeat.addBooking();
-                            boughtSeat.updateAvailableSeats();
-                            String[] availableSeat = boughtSeat.getAvailableSeats();
-                            String[] booked = boughtSeat.getBookedSeats();
-                            boughtSeat.printArrays(booked);
-                            System.out.println("\n\n\n");
-                            boughtSeat.printArrays(availableSeat);
-                             */
-
                             // Do something more
 
                         case 2:

@@ -17,24 +17,38 @@ public class Functions {
         int newLength = currentArray.length +1;
         String[] newArray = new String[newLength];
 
-        for(int count = 0; count < currentArray.length; count++){
-            newArray[count] = currentArray[count];
-        }
+        System.arraycopy(currentArray, 0, newArray, 0, currentArray.length);
         newArray[newLength - 1] = value;
         return newArray;
     }
 
+    /**
+     * Adds a given value to a specified 2D array.
+     * @param currentArray
+     *              The 2D array that needs to be changed.
+     * @param value
+     *              The value array that need to be added to the array.
+     * @return
+     *              New array containing the given value and the previous array.
+     */
     public static String[][] updateDoubleArray(String[][] currentArray, String[] value){
         int newLength = currentArray.length +1;
         String[][] newArray = new String[newLength][2];
 
-        for(int count = 0; count < currentArray.length; count++){
-            newArray[count] = currentArray[count];
-        }
+        System.arraycopy(currentArray, 0, newArray, 0, currentArray.length);
         newArray[newLength - 1] = value;
         return newArray;
     }
 
+    /**
+     * removes a given value from an existing array.
+     * @param currentArray
+     *              The array that needs to change.
+     * @param value
+     *              The value that need to be removed from array.
+     * @return
+     *              the new array without the given value.
+     */
     public static String[] removeFromArray(String[] currentArray, String value){
         int count = 0;
         for (String item: currentArray){
@@ -74,6 +88,16 @@ public class Functions {
         return result;
     }
 
+    /**
+     * Compare a given String value against a given String[] array
+     * and if found, returns the int index of the value in the array.
+     * @param array
+     *              the given array of Strings.
+     * @param value
+     *              the string value that need to be checked.
+     * @return
+     *              int index of the value.
+     */
     public static int getIndex(String[] array, String value){
         int index = -1;
         for (int count = 0; count < array.length; count++){
@@ -86,6 +110,12 @@ public class Functions {
     }
 
 
+    /**
+     * returns string[] array of all the seats.
+     * from A1 to D14
+     * @return
+     *          a string array of seat ids.
+     */
     public static String[] assignAllSeats(){
         String[] columns = {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14"};
         String[] rows = {"A", "B", "C", "D"};
@@ -95,10 +125,7 @@ public class Functions {
         for(String row: rows){
             for(String column: columns){
                 if(Functions.checkArrayValues(row, shortRows)){
-                    if(Functions.checkArrayValues(column, shortColumns)){
-                        // Do nothing
-                        continue;
-                    }else{
+                    if (!Functions.checkArrayValues(column, shortColumns)) {
                         String newSeat = row + column;
                         allSeats = Functions.updateArray(allSeats, newSeat);
                     }
@@ -111,6 +138,13 @@ public class Functions {
         return  allSeats;
     }
 
+
+    /**
+     * Depending on the seat record, print the seating plan
+     * categorized by availability (O or X).
+     * @param seatRecord
+     *              String[][] class attribute seatRecord of the DataHandler class.
+     */
     public static void printSeatingPlan(String[][] seatRecord){
         System.out.println("\n");
         System.out.print("    1  2  3  4  5  6  7  8  9  10 11 12 13 14\n");
@@ -140,12 +174,25 @@ public class Functions {
         System.out.println("\n");
     }
 
+
+    /**
+     * Prints out any given string array
+     * (for debugging purposes)
+     * @param array
+     *              The array that needs to be printed.
+     */
     public static void printArrays(String[] array){
         for(String item: array){
             System.out.print(item + ", ");
         }
     }
 
+    /**
+     * Prints out any given 2D string array
+     *        (for debugging purposes)
+     * @param array
+     *              The 2D array that needs to be printed.
+     */
     public static void printDoubleArrays(String[][] array){
         System.out.print("\n\n");
         for(String[] item: array){
