@@ -1,3 +1,19 @@
+/**
+ * The class (Functions) includes: <br>
+ * {@linkplain #updateArray(String[], String) updateArray} <br>
+ * {@linkplain #updateDoubleArray(String[][], String[]) updateDoubleArray} <br>
+ * {@linkplain #removeFromArray(String[], String) removeFromArray} <br>
+ * {@linkplain #checkArrayValues(String, String[]) checkArrayValues} <br>
+ * {@linkplain #getIndex(String[], String) getIndex} <br>
+ * {@linkplain #assignAllSeats() assignAllSeats} <br>
+ * {@linkplain #printSeatingPlan(String[][]) printSeatingPlan} <br>
+ * {@linkplain #validateSeatInputs(String, String) validateSeatInputs} <br>
+ * {@linkplain #printArrays(String[]) printArrays} <br>
+ * {@linkplain #printDoubleArrays(String[][]) printDoubleArrays} <br>
+ *
+ * @author
+ *          Anuja Rahul Gunasinghe
+ */
 public class Functions {
     static String[] rows = {"A", "B", "C", "D"};
     static String[] columns = {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14"};

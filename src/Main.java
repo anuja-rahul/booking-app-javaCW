@@ -1,4 +1,28 @@
+/*
+I declare that my work contains no examples of misconduct, such as plagiarism, or collusion.
+Any code taken from other sources is referenced below my code.
+IIT Student ID: 20232268
+UoW Student ID: w20530884
+Date: 09/03/2024
+ */
+
+
 import java.util.*;
+
+/**
+ * Main class for booking-app package.<br>
+ * The class (Main) includes: <br>
+ * {@linkplain #getChoice(int) getChoice} <br>
+ * {@linkplain #getUserInfo() getUserInfo} <br>
+ * {@linkplain #getSeatInfo() getSeatInfo} <br>
+ *
+ * <br> <br>
+ * For additional information, visit the
+ * <a href="https://github.com/anuja-rahul/booking-app-javaCW/blob/main/README.md">Documentation</a>.
+ *
+ * @author
+ *          Anuja Rahul Gunasinghe
+ */
 public class Main {
     // Scanner scan = new Scanner(System.in);
     public static void main(String[] args) {
