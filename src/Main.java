@@ -124,7 +124,7 @@ public class Main {
                                 break;
 
                             case 5:
-                                // Make ticket class
+                                // Maintain a ticket price record
                                 break;
 
                             case 6:
