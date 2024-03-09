@@ -1,4 +1,8 @@
 public class Functions {
+    static String[] rows = {"A", "B", "C", "D"};
+    static String[] columns = {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14"};
+    static String[] shortRows = {"B", "C"};
+    static String[] shortColumns = {"13", "14"};
 
     /**
      * Adds a given item to the current array by assigning all the elements of
@@ -117,10 +121,6 @@ public class Functions {
      *          a string array of seat ids.
      */
     public static String[] assignAllSeats(){
-        String[] columns = {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14"};
-        String[] rows = {"A", "B", "C", "D"};
-        String[] shortRows = {"B", "C"};
-        String[] shortColumns = {"13", "14"};
         String[] allSeats = {};
         for(String row: rows){
             for(String column: columns){
@@ -172,6 +172,21 @@ public class Functions {
             count ++;
         }
         System.out.println("\n");
+    }
+
+    public static boolean validateSeatInputs(String row, String column){
+        row =  row.toUpperCase();
+        boolean result = false;
+
+        if (checkArrayValues(row, rows)){
+            if (checkArrayValues(column, columns)){
+                String tempSeat = row + column;
+                if (checkArrayValues(tempSeat, assignAllSeats())){
+                    result = true;
+                }
+            }
+        }
+        return result;
     }
 
 

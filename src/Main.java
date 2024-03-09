@@ -8,15 +8,17 @@ public class Main {
         // construct a new DataHandler object to store all bookings and seat data
         DataHandler dataBase = new DataHandler(bookedSeats);
         // System.out.print(dataBase.allSeats.length);
-        dataBase.seatRecord = dataBase.initSeatRecord();
+        dataBase.seatRecord = dataBase.initRecords();
+        dataBase.ticketRecord = dataBase.initRecords();
 
         String[] userInfo = getUserInfo();
-        Person user = new Person(userInfo[0], userInfo[1], userInfo[2]);
+        Person person = new Person(userInfo[0], userInfo[1], userInfo[2]);
 
         int choice = -1;
         while(choice !=0){
             Scanner scan = new Scanner(System.in);
-            System.out.println("""
+            try {
+                System.out.println("""
 
                 **********************************************
                 *                 MENU OPTIONS               *
@@ -33,62 +35,86 @@ public class Main {
                 Enter your response:
                 """);
 
-            choice = scan.nextInt();
+                choice = scan.nextInt();
 
-            if(getChoice(choice)){
-                System.out.println("\nProceeding !\n");
-                if(choice != 0){
+                if(getChoice(choice)){
+                    System.out.println("\nProceeding !\n");
+                    if(choice != 0){
 
                     /*
                     Seats seat = new Seats('1', "A");
                     seat.printAllSeats();
                     */
 
-                    switch (choice){
-                        case 1:
-                            String[] newBooking = getSeatInfo();
-                            dataBase.addNewBookedSeat(newBooking);
-                            dataBase.updateAvailableSeats(true);
+                        switch (choice){
+                            case 1:
+                                // newSeat = {row, column} ex: {"A", "1"}
+                                String[] newSeat = getSeatInfo();
+                                // newBooking = {row column} ex: {"A1"}
+                                String[] newBooking = {newSeat[0] + newSeat[1]};
 
-                            // String[] currentlyAvailableSeats = dataBase.getAvailableSeats();
-                            // Functions.printArrays(currentlyAvailableSeats);
-                            dataBase.updateSeatRecord(newBooking, true);
-                            // Functions.printDoubleArrays(dataBase.seatRecord);
-                            break;
-                            // Do something more
+                                if (Functions.validateSeatInputs(newSeat[0], newSeat[1])){
 
-                        case 2:
-                            String[] removeBooking = getSeatInfo();
-                            dataBase.removeBookedSeat(removeBooking);
-                            dataBase.updateSeatRecord(removeBooking, false);
-                            break;
+                                    double price = Ticket.getPrice(newSeat[0]);
+                                    Ticket addTicket = new Ticket(newSeat[0], newBooking[0], price, person);
+                                    dataBase.addNewBookedSeat(newBooking);
+                                    dataBase.updateAvailableSeats(true);
+
+                                    // String[] currentlyAvailableSeats = dataBase.getAvailableSeats();
+                                    // Functions.printArrays(currentlyAvailableSeats);
+                                    dataBase.updateSeatRecord(newBooking, true);
+                                }else {
+                                    System.out.println("\nInvalid Seat !\n");
+                                }
+                                // Functions.printDoubleArrays(dataBase.seatRecord);
+                                break;
+
+                            case 2:
+                                // removeSeat = {row, column} ex: {"A", "1"}
+                                String[] removeSeat = getSeatInfo();
+                                // removeBooking = {row column} ex: {"A1"}
+                                String[] removeBooking = {removeSeat[0] + removeSeat[1]};
+                                if (Functions.validateSeatInputs(removeSeat[0], removeSeat[1])){
+
+                                    double price = Ticket.getPrice(removeSeat[0]);
+                                    Ticket deleteTicket = new Ticket(removeSeat[0], removeBooking[0], price, person);
+
+                                    dataBase.removeBookedSeat(removeBooking);
+                                    dataBase.updateSeatRecord(removeBooking, false);
+                                }else {
+                                    System.out.println("\nInvalid Seat !\n");
+                                }
+                                break;
 
                             // Do something else
 
-                        case 3:
-                            System.out.println("\nNext available seat is: " + dataBase.getFirstAvailableSeat() + "\n");
-                            // Do something else
-                            break;
+                            case 3:
+                                System.out.println("\nNext available seat is: " + dataBase.getFirstAvailableSeat() + "\n");
+                                // Do something else
+                                break;
 
-                        case 4:
-                            Functions.printSeatingPlan(dataBase.seatRecord);
-                            break;
+                            case 4:
+                                Functions.printSeatingPlan(dataBase.seatRecord);
+                                break;
 
-                        case 5:
-                            // Make ticket class
-                            break;
+                            case 5:
+                                // Make ticket class
+                                break;
 
-                        case 6:
-                            break;
+                            case 6:
+                                break;
+                        }
+
+
+                    }else{
+                        System.out.println("\nClosing !\n");
+                        break;
                     }
-
-                    
                 }else{
-                    System.out.println("\nClosing !\n");
-                    break;
+                    System.out.println("\nInvalid response !\n");
                 }
-            }else{
-                System.out.println("\nInvalid response !\n");
+            } catch (InputMismatchException e) {
+                System.out.println("\nInput must be in range (0-6)");
             }
         }
 
@@ -127,10 +153,11 @@ public class Main {
 
         System.out.print("\nEnter the row (A-D): ");
         char row = scan.next().charAt(0);
+        String currentRow = String.valueOf(row).toUpperCase();
 
         System.out.print("\nEnter the column (1-14): ");
         String column = scan.next();
 
-        return new String[]{row + column};
+        return new String[]{currentRow, column};
     }
 }

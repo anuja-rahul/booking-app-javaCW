@@ -1,9 +1,11 @@
 public class DataHandler {
 
     String[] bookedSeats;
-    String[] availableSeats = Functions.assignAllSeats();;
+    String[] availableSeats = Functions.assignAllSeats();
     String[] allSeats = Functions.assignAllSeats();
     String[][] seatRecord = new String[52][2];
+
+    String[][] ticketRecord = new String[52][];
 
     public DataHandler(String[] bookedSeats){
         this.bookedSeats = bookedSeats;
@@ -18,7 +20,7 @@ public class DataHandler {
         return this.availableSeats;
     }
 
-    public  String[][] initSeatRecord(){
+    public  String[][] initRecords(){
         String[][] tempRecord = new String[52][2];
         int idx = 0;
         for (String seat: allSeats){
