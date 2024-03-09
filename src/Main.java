@@ -63,14 +63,23 @@ public class Main {
                             // Do something more
 
                         case 2:
+                            break;
 
                             // Do something else
 
                         case 3:
+                            System.out.println("\nNext available seat is: " + dataBase.getFirstAvailableSeat() + "\n");
                             // Do something else
+                            break;
 
                         case 4:
                             Functions.printSeatingPlan(dataBase.seatRecord);
+                            break;
+
+                        case 5:
+                            break;
+
+                        case 6:
                             break;
                     }
 

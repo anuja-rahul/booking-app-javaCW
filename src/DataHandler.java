@@ -51,5 +51,16 @@ public class DataHandler {
         }
     }
 
+    public String getFirstAvailableSeat(){
+        String result = "0";
+        for (String[] record: seatRecord){
+            if (record[1].equals("-1")){
+                result = record[0];
+                break;
+            }
+        }
+        return result;
+    }
+
 
 }
