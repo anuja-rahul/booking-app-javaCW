@@ -23,12 +23,6 @@ public class Person {
         this.email = email;
     }
 
-    public void setSeats(String[] seats){
-        for(String seat: seats){
-
-        }
-    }
-
     // Getters
 
     public String getName(){
