@@ -79,8 +79,9 @@ public class Main {
 
                                 if (Functions.validateSeatInputs(newSeat[0], newSeat[1])){
 
-                                    double price = Ticket.getPrice(newSeat[0]);
-                                    Ticket addTicket = new Ticket(newSeat[0], newBooking[0], price, person);
+                                    double price = Ticket.getPrice(newSeat[1]);
+                                    System.out.println("\n" + price + "\n");
+                                    Ticket addTicket = new Ticket(newSeat[1], newBooking[0], price, person);
                                     dataBase.addNewBookedSeat(newBooking);
                                     dataBase.updateAvailableSeats(true);
 
@@ -100,8 +101,9 @@ public class Main {
                                 String[] removeBooking = {removeSeat[0] + removeSeat[1]};
                                 if (Functions.validateSeatInputs(removeSeat[0], removeSeat[1])){
 
-                                    double price = Ticket.getPrice(removeSeat[0]);
-                                    Ticket deleteTicket = new Ticket(removeSeat[0], removeBooking[0], price, person);
+                                    double price = Ticket.getPrice(removeSeat[1]);
+                                    System.out.println("\n" + price + "\n");
+                                    Ticket deleteTicket = new Ticket(removeSeat[1], removeBooking[0], price, person);
 
                                     dataBase.removeBookedSeat(removeBooking);
                                     dataBase.updateSeatRecord(removeBooking, false);
