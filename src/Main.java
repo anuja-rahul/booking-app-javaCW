@@ -7,6 +7,11 @@ public class Main {
 
         // construct a new DataHandler object to store all bookings and seat data
         DataHandler dataBase = new DataHandler(bookedSeats);
+        // System.out.print(dataBase.allSeats.length);
+        dataBase.seatRecord = dataBase.initSeatRecord();
+
+        String[] userInfo = getUserInfo();
+        Person user = new Person(userInfo[0], userInfo[1], userInfo[2]);
 
         int choice = -1;
         while(choice !=0){
@@ -29,16 +34,10 @@ public class Main {
                 """);
 
             choice = scan.nextInt();
+
             if(getChoice(choice)){
+                System.out.println("\nProceeding !\n");
                 if(choice != 0){
-                    System.out.println("\nProceeding !\n");
-                    System.out.print("\nEnter your first name: ");
-                    String firstName = scan.next();
-                    System.out.print("\nEnter your surname: ");
-                    String surName = scan.next();
-                    System.out.print("\nEnter your email: ");
-                    String email = scan.next();
-                    Person user = new Person(firstName, surName, email);
 
                     /*
                     Seats seat = new Seats('1', "A");
@@ -58,6 +57,9 @@ public class Main {
 
                             String[] currentlyAvailableSeats = dataBase.getAvailableSeats();
                             Functions.printArrays(currentlyAvailableSeats);
+                            dataBase.updateSeatRecord(newBooking);
+                            // Functions.printDoubleArrays(dataBase.seatRecord);
+                            break;
 
                             /*
                             Seats boughtSeat = new Seats(row, column);
@@ -75,6 +77,13 @@ public class Main {
                         case 2:
 
                             // Do something else
+
+                        case 3:
+                            // Do something else
+
+                        case 4:
+                            Functions.printSeatingPlan(dataBase.seatRecord);
+                            break;
                     }
 
                     
@@ -100,5 +109,20 @@ public class Main {
             }
         }
         return present;
+    }
+
+    private static String[] getUserInfo(){
+        Scanner scan = new Scanner(System.in);
+
+        System.out.print("\nEnter your first name: ");
+        String firstName = scan.next();
+
+        System.out.print("\nEnter your surname: ");
+        String surName = scan.next();
+
+        System.out.print("\nEnter your email: ");
+        String email = scan.next();
+
+        return new String[]{firstName, surName, email};
     }
 }

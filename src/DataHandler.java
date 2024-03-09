@@ -3,7 +3,7 @@ public class DataHandler {
     String[] bookedSeats;
     String[] availableSeats = Functions.assignAllSeats();;
     String[] allSeats = Functions.assignAllSeats();
-    String[][] seatRecord;
+    String[][] seatRecord = new String[52][2];
 
     public DataHandler(String[] bookedSeats){
         this.bookedSeats = bookedSeats;
@@ -18,14 +18,20 @@ public class DataHandler {
         return this.availableSeats;
     }
 
-    public void updateSeatRecord(String seat){
-        int idx = Functions.getIndex(allSeats, seat);
-        if (idx != -1){
-            String[] tempArray = {seat, String.valueOf(idx)};
-            seatRecord = Functions.updateDoubleArray(seatRecord, tempArray);
-        }else{
-            System.out.println("\nNo such seat found !\n");
+    public  String[][] initSeatRecord(){
+        String[][] tempRecord = new String[52][2];
+        int idx = 0;
+        for (String seat: allSeats){
+            tempRecord[idx][0] = seat;
+            tempRecord[idx][1] = "-1";
+            idx ++;
         }
+        return tempRecord;
+    }
+
+    public void updateSeatRecord(String[] seat){
+        int idx = Functions.getIndex(allSeats, seat[0]);
+        seatRecord[idx][1] = "1";
     }
 
 

@@ -87,7 +87,7 @@ public class Functions {
 
 
     public static String[] assignAllSeats(){
-        String[] columns = {"1", "2", "3", "4", "5", "6", "7", "8", "8", "9", "10", "11", "12", "13", "14"};
+        String[] columns = {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14"};
         String[] rows = {"A", "B", "C", "D"};
         String[] shortRows = {"B", "C"};
         String[] shortColumns = {"13", "14"};
@@ -111,9 +111,45 @@ public class Functions {
         return  allSeats;
     }
 
+    public static void printSeatingPlan(String[][] seatRecord){
+        System.out.println("\n");
+        System.out.print("    1  2  3  4  5  6  7  8  9  10 11 12 13 14\n");
+        System.out.print("   __________________________________________\n");
+        int count = 0;
+        for (String[] record: seatRecord){
+            if (count == 0){
+                System.out.print("A | ");
+            }else if (count == 14){
+                System.out.print("\nB | ");
+            }else if (count == 26){
+                System.out.print("\nC | ");
+            } else if (count == 38) {
+                System.out.print("\nD | ");
+            } else if (count == 52) {
+                System.out.print("\n");
+            }
+
+            if (!record[1].equals("-1")){
+                System.out.print("X  ");
+            }else {
+                System.out.print("O  ");
+            }
+
+            count ++;
+        }
+        System.out.println("\n");
+    }
+
     public static void printArrays(String[] array){
         for(String item: array){
             System.out.print(item + ", ");
+        }
+    }
+
+    public static void printDoubleArrays(String[][] array){
+        System.out.print("\n\n");
+        for(String[] item: array){
+            System.out.print(item[0] + ", " + item[1] + "\n");
         }
     }
 }
