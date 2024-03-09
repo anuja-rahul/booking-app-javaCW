@@ -29,9 +29,13 @@ public class DataHandler {
         return tempRecord;
     }
 
-    public void updateSeatRecord(String[] seat){
+    public void updateSeatRecord(String[] seat, boolean booked){
         int idx = Functions.getIndex(allSeats, seat[0]);
-        seatRecord[idx][1] = "1";
+        if (booked){
+            seatRecord[idx][1] = "1";
+        }else{
+            seatRecord[idx][1] = "-1";
+        }
     }
 
 
@@ -43,13 +47,28 @@ public class DataHandler {
         }
     }
 
-    public void updateAvailableSeats(){
-        for (String seat: allSeats){
-            if (Functions.checkArrayValues(seat, this.bookedSeats)){
-                availableSeats = Functions.removeFromArray(availableSeats, seat);
+    public void removeBookedSeat(String[] removedSeatArray){
+        for (String seat: removedSeatArray){
+            if (!Functions.checkArrayValues(seat, availableSeats)){
+                this.bookedSeats = Functions.removeFromArray(this.bookedSeats, seat);
             }
         }
     }
+
+    public void updateAvailableSeats(boolean booking){
+        for (String seat: allSeats){
+            if (booking){
+                if (Functions.checkArrayValues(seat, this.bookedSeats)){
+                    availableSeats = Functions.removeFromArray(availableSeats, seat);
+                }
+            }else {
+                if (!Functions.checkArrayValues(seat, this.bookedSeats)){
+                    availableSeats = Functions.updateArray(availableSeats, seat);
+                }
+            }
+        }
+    }
+
 
     public String getFirstAvailableSeat(){
         String result = "0";

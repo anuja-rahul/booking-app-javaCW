@@ -46,23 +46,21 @@ public class Main {
 
                     switch (choice){
                         case 1:
-                            System.out.print("\nEnter the row (A-D): ");
-                            char row = scan.next().charAt(0);
-                            System.out.print("\nEnter the column (1-14): ");
-                            String column = scan.next();
-
-                            String[] newBooking = {row + column};
+                            String[] newBooking = getSeatInfo();
                             dataBase.addNewBookedSeat(newBooking);
-                            dataBase.updateAvailableSeats();
+                            dataBase.updateAvailableSeats(true);
 
                             // String[] currentlyAvailableSeats = dataBase.getAvailableSeats();
                             // Functions.printArrays(currentlyAvailableSeats);
-                            dataBase.updateSeatRecord(newBooking);
+                            dataBase.updateSeatRecord(newBooking, true);
                             // Functions.printDoubleArrays(dataBase.seatRecord);
                             break;
                             // Do something more
 
                         case 2:
+                            String[] removeBooking = getSeatInfo();
+                            dataBase.removeBookedSeat(removeBooking);
+                            dataBase.updateSeatRecord(removeBooking, false);
                             break;
 
                             // Do something else
@@ -121,5 +119,17 @@ public class Main {
         String email = scan.next();
 
         return new String[]{firstName, surName, email};
+    }
+
+    private static String[] getSeatInfo(){
+        Scanner scan = new Scanner(System.in);
+
+        System.out.print("\nEnter the row (A-D): ");
+        char row = scan.next().charAt(0);
+
+        System.out.print("\nEnter the column (1-14): ");
+        String column = scan.next();
+
+        return new String[]{row + column};
     }
 }
