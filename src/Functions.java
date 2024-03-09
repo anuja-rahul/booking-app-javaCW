@@ -24,6 +24,17 @@ public class Functions {
         return newArray;
     }
 
+    public static String[][] updateDoubleArray(String[][] currentArray, String[] value){
+        int newLength = currentArray.length +1;
+        String[][] newArray = new String[newLength][2];
+
+        for(int count = 0; count < currentArray.length; count++){
+            newArray[count] = currentArray[count];
+        }
+        newArray[newLength - 1] = value;
+        return newArray;
+    }
+
     public static String[] removeFromArray(String[] currentArray, String value){
         int count = 0;
         for (String item: currentArray){
@@ -61,6 +72,17 @@ public class Functions {
             }
         }
         return result;
+    }
+
+    public static int getIndex(String[] array, String value){
+        int index = -1;
+        for (int count = 0; count < array.length; count++){
+            if (value.equals(array[count])){
+                index = count;
+                break;
+            }
+        }
+        return index;
     }
 
 
