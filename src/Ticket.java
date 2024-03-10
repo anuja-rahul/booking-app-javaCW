@@ -14,6 +14,23 @@ public class Ticket {
     }
 
     // Getters
+
+    public String getRow(){
+        return this.row;
+    }
+
+    public String getSeat(){
+        return this.seat;
+    }
+
+    public double getPrice(){
+        return this.price;
+    }
+
+    public Person getPerson(){
+        return this.person;
+    }
+
     // Setters
 
     public static double getPrice(String column){
@@ -36,7 +53,8 @@ public class Ticket {
                 this.person.getSurname(), this.person.getEmail()};
     }
 
-    public static void printTickets(String[][] ticketRecord, double totalSales){
+    public static String[] getTickets(String[][] ticketRecord, double totalSales){
+        String[] ticketContents = {};
         //Functions.printArrays(ticket);
         System.out.println("\nTickets Information\n___________________\n");
         System.out.println("Total Sales: $" + totalSales + "\n\n");
@@ -50,15 +68,17 @@ public class Ticket {
                 String email = record[5];
 
                 // Do something
-                System.out.printf("""
+                String currentTicket = """
                 Seat:   %s
                 Price:  $%.2f
                 Name:   %s %s
                 e-mail: %s
                 
-                """, seat, price, name, surName, email);
+                """.formatted(seat, price, name, surName, email);
+                ticketContents = Functions.updateArray(ticketContents, currentTicket);
             }
         }
+        return ticketContents;
     }
 
 }

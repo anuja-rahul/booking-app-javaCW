@@ -86,8 +86,11 @@ public class Main {
                                     // Functions.printArrays(currentlyAvailableSeats);
                                     dataBase.updateSeatRecord(newBooking, true);
 
-                                    manageTicket(newSeat[1], newSeat[0], person, dataBase, true);
+                                    Ticket ticket = manageTicket(newSeat[1], newSeat[0], person, dataBase, true);
                                     // Functions.printDoubleArrays(dataBase.ticketRecord);
+
+                                    FileHandler newTicketFile = new FileHandler(ticket);
+                                    newTicketFile.writeToFile();
 
                                 }else {
                                     System.out.println("\nInvalid Seat !\n");
@@ -111,7 +114,7 @@ public class Main {
                                     dataBase.removeBookedSeat(removeBooking);
                                     dataBase.updateSeatRecord(removeBooking, false);
 
-                                    manageTicket(removeSeat[1], removeSeat[0], person, dataBase, false);
+                                    Ticket ticket = manageTicket(removeSeat[1], removeSeat[0], person, dataBase, false);
                                     // Functions.printDoubleArrays(dataBase.ticketRecord);
 
 
@@ -134,7 +137,7 @@ public class Main {
                             case 5:
                                 // Maintain a ticket price record
                                 double totalSales = dataBase.getTotalSales();
-                                Ticket.printTickets(dataBase.ticketRecord, totalSales);
+                                Functions.printArrays(Ticket.getTickets(dataBase.ticketRecord, totalSales));
                                 // System.out.println(totalSales);
                                 break;
 
@@ -199,11 +202,13 @@ public class Main {
         return new String[]{currentRow, column};
     }
 
-    private static void manageTicket(String column, String row, Person person, DataHandler dataBase, boolean bought){
+    private static Ticket manageTicket(String column, String row, Person person, DataHandler dataBase, boolean bought){
         double price = Ticket.getPrice(column);
         Ticket newTicket = new Ticket(column, (row + column), price, person);
         String[] currentTicket = newTicket.generateTicket();
         dataBase.updateTicketRecord(currentTicket, bought);
+
+        return newTicket;
     }
 }
 
