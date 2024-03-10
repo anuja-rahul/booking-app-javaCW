@@ -226,7 +226,7 @@ public class Functions {
      */
     public static void printArrays(String[] array){
         for(String item: array){
-            System.out.print(item + ", ");
+            System.out.print(item);
         }
     }
 
