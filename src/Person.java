@@ -37,9 +37,4 @@ public class Person {
         return this.email;
     }
 
-    public String[] getPersonData(){
-        // returns an array of the Person object containing all the attributes.
-        return new String[]{this.name, this.surname, this.email};
-    }
-
 }

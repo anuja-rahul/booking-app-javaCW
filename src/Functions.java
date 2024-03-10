@@ -1,16 +1,13 @@
 /**
  * The class (Functions) includes: <br>
  * {@link #updateArray(String[], String) updateArray} <br>
- * {@link #updateDoubleArray(String[][], String[]) updateDoubleArray} <br>
  * {@link #removeFromArray(String[], String) removeFromArray} <br>
  * {@link #checkArrayValues(String, String[]) checkArrayValues} <br>
  * {@link #getIndex(String[], String) getIndex} <br>
  * {@link #assignAllSeats() assignAllSeats} <br>
  * {@link #printSeatingPlan(String[][]) printSeatingPlan} <br>
  * {@link #validateSeatInputs(String, String) validateSeatInputs} <br>
- * {@link #printArrays(String[]) printArrays} <br>
- * {@link #printDoubleArrays(String[][]) printDoubleArrays} <br>
- *
+ * {@link #printArrays(String[]) printArrays} <br>*
  * @author
  *          Anuja Rahul Gunasinghe
  */
@@ -36,25 +33,6 @@ public class Functions {
     public static String[] updateArray(String[] currentArray, String value){
         int newLength = currentArray.length +1;
         String[] newArray = new String[newLength];
-
-        System.arraycopy(currentArray, 0, newArray, 0, currentArray.length);
-        newArray[newLength - 1] = value;
-        return newArray;
-    }
-
-    /**
-     * Adds a given value to a specified 2D array. <br>
-     * (Used for debugging purposes)
-     * @param currentArray
-     *              The 2D array that needs to be changed.
-     * @param value
-     *              The value array that need to be added to the array.
-     * @return
-     *              New array containing the given value and the previous array.
-     */
-    public static String[][] updateDoubleArray(String[][] currentArray, String[] value){
-        int newLength = currentArray.length +1;
-        String[][] newArray = new String[newLength][2];
 
         System.arraycopy(currentArray, 0, newArray, 0, currentArray.length);
         newArray[newLength - 1] = value;
@@ -230,23 +208,12 @@ public class Functions {
         }
     }
 
-    /**
-     * Prints out any given 2D string array <br>
-     *(for debugging purposes)
-     * @param array
-     *              The 2D array that needs to be printed.
-     */
-    public static void printDoubleArrays(String[][] array){
-        System.out.print("\n\n");
-        for(String[] item: array){
-            for (String value: item){
-                System.out.print(value + ", ");
-            }
-            System.out.print("\n");
-        }
-    }
-
-    public static String formatTicket(String seat, String name, String surName, String email, double price){
+    public static String formatTicket(String[] ticketInfo){
+        String seat = ticketInfo[0];
+        Double price = Double.valueOf(ticketInfo[2]);
+        String name = ticketInfo[3];
+        String surName = ticketInfo[4];
+        String email = ticketInfo[5];
         return """
                 Seat:   %s
                 Price:  $%.2f

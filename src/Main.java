@@ -133,12 +133,8 @@ public class Main {
                                     System.out.println("\n" + seatStatus[0] + "\n");
                                 }else {
                                     System.out.println("\nTicket Information\n__________________\n");
-                                    String seat = seatStatus[0];
-                                    double price = Double.valueOf(seatStatus[2]);
-                                    String name = seatStatus[3];
-                                    String surName = seatStatus[4];
-                                    String email = seatStatus[5];
-                                    String ticketContent = Functions.formatTicket(seat, name, surName, email, price);
+                                    String[] dataArray = {seatStatus[0], seatStatus[2], seatStatus[3], seatStatus[4], seatStatus[5]};
+                                    String ticketContent = Functions.formatTicket(dataArray);
                                     System.out.println(ticketContent + "\n\n");
 
 

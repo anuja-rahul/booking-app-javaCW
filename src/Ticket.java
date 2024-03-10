@@ -1,10 +1,10 @@
 public class Ticket {
 
     public static String[][] ticketPrices = {{"1", "6", "200"}, {"6", "10", "150"}, {"10", "15", "180"}};
-    private final String row;
-    private final String seat;
-    private final double price;
-    private final Person person;
+    private  String row;
+    private  String seat;
+    private  double price;
+    private  Person person;
 
     public Ticket(String row, String seat, double price, Person person){
         this.row = row;
@@ -33,14 +33,31 @@ public class Ticket {
 
     // Setters
 
+    public void setRow(String row){
+        this.row = row;
+    }
+
+    public void setSeat(String seat){
+        this.seat = seat;
+    }
+
+    public void setPrice(double price){
+        this.price = price;
+    }
+
+    public void setPerson(Person person){
+        this.person = person;
+    }
+
+
     public static double getPrice(String column){
-        int currentRow = Integer.valueOf(column);
+        int currentRow = Integer.parseInt(column);
         double price = 0;
         for (String[] priceArray: ticketPrices){
-            int lowerRange = Integer.valueOf(priceArray[0]);
-            int upperRange = Integer.valueOf(priceArray[1]);
+            int lowerRange = Integer.parseInt(priceArray[0]);
+            int upperRange = Integer.parseInt(priceArray[1]);
             if (currentRow >= lowerRange && currentRow < upperRange){
-                price = Integer.valueOf(priceArray[2]);
+                price = Integer.parseInt(priceArray[2]);
                 break;
             }
         }
@@ -60,14 +77,9 @@ public class Ticket {
 
         for (String[] record: ticketRecord){
             if (Functions.checkArrayValues("1", record)){
+                String[] dataArray = {record[0], record[2], record[3], record[4], record[5]};
 
-                String seat = record[0];
-                double price = Double.valueOf(record[2]);
-                String name = record[3];
-                String surName = record[4];
-                String email = record[5];
-
-                String currentTicket = Functions.formatTicket(seat, name, surName, email, price);
+                String currentTicket = Functions.formatTicket(dataArray);
                 ticketContents = Functions.updateArray(ticketContents, currentTicket);
             }
         }

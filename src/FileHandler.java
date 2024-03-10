@@ -5,9 +5,6 @@ public class FileHandler {
 
     final String rootPath = "tickets/";
     final File folderPath = new File("tickets");
-    String fileName;
-    String ticketContent;
-
     Ticket ticket;
 
     public FileHandler(Ticket ticket){
@@ -15,7 +12,7 @@ public class FileHandler {
         this.ticket = ticket;
     }
 
-    public void createDirectory(){
+    private void createDirectory(){
         if (!folderPath.exists()){
             folderPath.mkdirs();
         }
@@ -31,9 +28,10 @@ public class FileHandler {
         String name =  person.getName();
         String surName = person.getSurname();
         String email = person.getEmail();
+        String[] dataArray = {seat, String.valueOf(price), name, surName, email};
 
         if (write){
-            String fileContent = Functions.formatTicket(seat, name, surName, email, price);
+            String fileContent = Functions.formatTicket(dataArray);
 
             try {
                 FileWriter ticketFile = new FileWriter(fileName);

@@ -64,7 +64,7 @@ public class DataHandler {
         for (String[] ticket: ticketRecord){
             if (Functions.checkArrayValues("1", ticket)){
                 String[] currentRecord = ticketRecord[idx];
-                double currentRecordValue = Double.valueOf(currentRecord[2]);
+                double currentRecordValue = Double.parseDouble(currentRecord[2]);
                 total = total + currentRecordValue;
             }
             idx ++;
@@ -116,7 +116,7 @@ public class DataHandler {
 
 
     public String[] getSeatInformation(String[] seatInfo){
-        String[] result = {};
+        String[] result;
         String[] currentSeat = {};
         String seatName = seatInfo[0] + seatInfo[1];
         for (String[] seat: ticketRecord){
