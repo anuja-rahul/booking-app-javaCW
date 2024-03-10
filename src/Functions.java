@@ -227,7 +227,10 @@ public class Functions {
     public static void printDoubleArrays(String[][] array){
         System.out.print("\n\n");
         for(String[] item: array){
-            System.out.print(item[0] + ", " + item[1] + "\n");
+            for (String value: item){
+                System.out.print(value + ", ");
+            }
+            System.out.print("\n");
         }
     }
 }

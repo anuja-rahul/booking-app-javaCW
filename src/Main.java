@@ -32,8 +32,8 @@ public class Main {
         // construct a new DataHandler object to store all bookings and seat data
         DataHandler dataBase = new DataHandler(bookedSeats);
         // System.out.print(dataBase.allSeats.length);
-        dataBase.seatRecord = dataBase.initRecords();
-        dataBase.ticketRecord = dataBase.initRecords();
+        dataBase.seatRecord = dataBase.initRecords(true);
+        dataBase.ticketRecord = dataBase.initRecords(false);
 
         String[] userInfo = getUserInfo();
         Person person = new Person(userInfo[0], userInfo[1], userInfo[2]);
@@ -79,15 +79,16 @@ public class Main {
 
                                 if (Functions.validateSeatInputs(newSeat[0], newSeat[1])){
 
-                                    double price = Ticket.getPrice(newSeat[1]);
-                                    System.out.println("\n" + price + "\n");
-                                    Ticket addTicket = new Ticket(newSeat[1], newBooking[0], price, person);
                                     dataBase.addNewBookedSeat(newBooking);
                                     dataBase.updateAvailableSeats(true);
 
                                     // String[] currentlyAvailableSeats = dataBase.getAvailableSeats();
                                     // Functions.printArrays(currentlyAvailableSeats);
                                     dataBase.updateSeatRecord(newBooking, true);
+
+                                    manageTicket(newSeat[1], newSeat[0], person, dataBase, true);
+                                    Functions.printDoubleArrays(dataBase.ticketRecord);
+
                                 }else {
                                     System.out.println("\nInvalid Seat !\n");
                                 }
@@ -103,10 +104,17 @@ public class Main {
 
                                     double price = Ticket.getPrice(removeSeat[1]);
                                     System.out.println("\n" + price + "\n");
-                                    Ticket deleteTicket = new Ticket(removeSeat[1], removeBooking[0], price, person);
+
+
+                                    dataBase.updateAvailableSeats(false);
 
                                     dataBase.removeBookedSeat(removeBooking);
                                     dataBase.updateSeatRecord(removeBooking, false);
+
+                                    manageTicket(removeSeat[1], removeSeat[0], person, dataBase, false);
+                                    Functions.printDoubleArrays(dataBase.ticketRecord);
+
+
                                 }else {
                                     System.out.println("\nInvalid Seat !\n");
                                 }
@@ -185,6 +193,13 @@ public class Main {
         String column = scan.next();
 
         return new String[]{currentRow, column};
+    }
+
+    private static void manageTicket(String column, String row, Person person, DataHandler dataBase, boolean bought){
+        double price = Ticket.getPrice(column);
+        Ticket newTicket = new Ticket(column, (row + column), price, person);
+        String[] currentTicket = newTicket.generateTicket();
+        dataBase.updateTicketRecord(currentTicket, bought);
     }
 }
 

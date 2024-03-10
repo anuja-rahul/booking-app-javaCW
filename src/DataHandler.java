@@ -5,7 +5,7 @@ public class DataHandler {
     String[] allSeats = Functions.assignAllSeats();
     String[][] seatRecord = new String[52][2];
 
-    String[][] ticketRecord = new String[52][];
+    String[][] ticketRecord = new String[52][3];
 
     public DataHandler(String[] bookedSeats){
         this.bookedSeats = bookedSeats;
@@ -20,12 +20,21 @@ public class DataHandler {
         return this.availableSeats;
     }
 
-    public  String[][] initRecords(){
+    public  String[][] initRecords(boolean seats){
         String[][] tempRecord = new String[52][2];
+        if (!seats){
+            tempRecord = new String[52][6];
+        }
         int idx = 0;
         for (String seat: allSeats){
             tempRecord[idx][0] = seat;
             tempRecord[idx][1] = "-1";
+            if (!seats){
+                tempRecord[idx][2] = "0";
+                tempRecord[idx][3] = "0";
+                tempRecord[idx][4] = "0";
+                tempRecord[idx][5] = "0";
+            }
             idx ++;
         }
         return tempRecord;
@@ -37,6 +46,15 @@ public class DataHandler {
             seatRecord[idx][1] = "1";
         }else{
             seatRecord[idx][1] = "-1";
+        }
+    }
+
+    public void updateTicketRecord(String[] ticket, boolean bought){
+        int idx = Functions.getIndex(allSeats, ticket[0]);
+        if (bought){
+            ticketRecord[idx] = ticket;
+        }else {
+            ticketRecord[idx] = new String[]{allSeats[idx], "-1", "0", "0", "0", "0"};
         }
     }
 

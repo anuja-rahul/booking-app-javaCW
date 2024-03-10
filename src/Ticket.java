@@ -13,8 +13,8 @@ public class Ticket {
         this.person = person;
     }
 
-    public static double getPrice(String row){
-        int currentRow = Integer.valueOf(row);
+    public static double getPrice(String column){
+        int currentRow = Integer.valueOf(column);
         double price = 0;
         for (String[] priceArray: ticketPrices){
             int lowerRange = Integer.valueOf(priceArray[0]);
@@ -25,5 +25,11 @@ public class Ticket {
             }
         }
         return price;
+    }
+
+    public String[] generateTicket(){
+        // {seat, 1, price}
+        return new String[]{this.seat, "1", String.valueOf(this.price), this.person.getName(),
+                this.person.getSurname(), this.person.getEmail()};
     }
 }
