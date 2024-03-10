@@ -24,14 +24,12 @@ import java.util.*;
  *          Anuja Rahul Gunasinghe
  */
 public class Main {
-    // Scanner scan = new Scanner(System.in);
     public static void main(String[] args) {
 
         String[] bookedSeats = {};
 
         // construct a new DataHandler object to store all bookings and seat data
         DataHandler dataBase = new DataHandler(bookedSeats);
-        // System.out.print(dataBase.allSeats.length);
         dataBase.seatRecord = dataBase.initRecords(true);
         dataBase.ticketRecord = dataBase.initRecords(false);
 
@@ -63,14 +61,10 @@ public class Main {
 
                 if(getChoice(choice)){
                     System.out.println("\nProceeding !\n");
+
                     if(choice != 0){
-
-                    /*
-                    Seats seat = new Seats('1', "A");
-                    seat.printAllSeats();
-                    */
-
                         switch (choice){
+
                             case 1:
                                 // newSeat = {row, column} ex: {"A", "1"}
                                 String[] newSeat = getSeatInfo();
@@ -81,21 +75,15 @@ public class Main {
 
                                     dataBase.addNewBookedSeat(newBooking);
                                     dataBase.updateAvailableSeats(true);
-
-                                    // String[] currentlyAvailableSeats = dataBase.getAvailableSeats();
-                                    // Functions.printArrays(currentlyAvailableSeats);
                                     dataBase.updateSeatRecord(newBooking, true);
 
                                     Ticket ticket = manageTicket(newSeat[1], newSeat[0], person, dataBase, true);
-                                    // Functions.printDoubleArrays(dataBase.ticketRecord);
-
                                     FileHandler newTicketFile = new FileHandler(ticket);
-                                    newTicketFile.writeToFile();
+                                    newTicketFile.writeToFile(true);
 
                                 }else {
                                     System.out.println("\nInvalid Seat !\n");
                                 }
-                                // Functions.printDoubleArrays(dataBase.seatRecord);
                                 break;
 
                             case 2:
@@ -115,7 +103,8 @@ public class Main {
                                     dataBase.updateSeatRecord(removeBooking, false);
 
                                     Ticket ticket = manageTicket(removeSeat[1], removeSeat[0], person, dataBase, false);
-                                    // Functions.printDoubleArrays(dataBase.ticketRecord);
+                                    FileHandler newTicketFile = new FileHandler(ticket);
+                                    newTicketFile.writeToFile(false);
 
 
                                 }else {
@@ -123,11 +112,8 @@ public class Main {
                                 }
                                 break;
 
-                            // Do something else
-
                             case 3:
                                 System.out.println("\nNext available seat is: " + dataBase.getFirstAvailableSeat() + "\n");
-                                // Do something else
                                 break;
 
                             case 4:
@@ -135,14 +121,29 @@ public class Main {
                                 break;
 
                             case 5:
-                                // Maintain a ticket price record
                                 double totalSales = dataBase.getTotalSales();
                                 Functions.printArrays(Ticket.getTickets(dataBase.ticketRecord, totalSales));
-                                // System.out.println(totalSales);
+
                                 break;
 
                             case 6:
                                 String[] checkSeat = getSeatInfo();
+                                String[] seatStatus = dataBase.getSeatInformation(checkSeat);
+                                if (seatStatus.length == 1){
+                                    System.out.println("\n" + seatStatus[0] + "\n");
+                                }else {
+                                    System.out.println("\nTicket Information\n__________________\n");
+                                    String seat = seatStatus[0];
+                                    double price = Double.valueOf(seatStatus[2]);
+                                    String name = seatStatus[3];
+                                    String surName = seatStatus[4];
+                                    String email = seatStatus[5];
+                                    String ticketContent = Functions.formatTicket(seat, name, surName, email, price);
+                                    System.out.println(ticketContent + "\n\n");
+
+
+                                }
+
                                 break;
                         }
 

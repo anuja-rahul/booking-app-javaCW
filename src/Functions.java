@@ -245,4 +245,13 @@ public class Functions {
             System.out.print("\n");
         }
     }
+
+    public static String formatTicket(String seat, String name, String surName, String email, double price){
+        return """
+                Seat:   %s
+                Price:  $%.2f
+                Name:   %s %s
+                e-mail: %s
+                """.formatted(seat, price, name, surName, email);
+    }
 }

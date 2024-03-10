@@ -72,7 +72,6 @@ public class DataHandler {
         return total;
     }
 
-
     public void addNewBookedSeat(String[] newSeatArray){
         for(String seat: newSeatArray){
             if(Functions.checkArrayValues(seat, availableSeats)){
@@ -111,6 +110,25 @@ public class DataHandler {
                 result = record[0];
                 break;
             }
+        }
+        return result;
+    }
+
+
+    public String[] getSeatInformation(String[] seatInfo){
+        String[] result = {};
+        String[] currentSeat = {};
+        String seatName = seatInfo[0] + seatInfo[1];
+        for (String[] seat: ticketRecord){
+            if (seat[0].equals(seatName)){
+                currentSeat = seat;
+                break;
+            }
+        }
+        if (currentSeat[1].equals("1")){
+            result = currentSeat;
+        }else {
+            result = new String[]{"This seat is available !"};
         }
         return result;
     }

@@ -55,9 +55,9 @@ public class Ticket {
 
     public static String[] getTickets(String[][] ticketRecord, double totalSales){
         String[] ticketContents = {};
-        //Functions.printArrays(ticket);
         System.out.println("\nTickets Information\n___________________\n");
         System.out.println("Total Sales: $" + totalSales + "\n\n");
+
         for (String[] record: ticketRecord){
             if (Functions.checkArrayValues("1", record)){
 
@@ -67,14 +67,7 @@ public class Ticket {
                 String surName = record[4];
                 String email = record[5];
 
-                // Do something
-                String currentTicket = """
-                Seat:   %s
-                Price:  $%.2f
-                Name:   %s %s
-                e-mail: %s
-                
-                """.formatted(seat, price, name, surName, email);
+                String currentTicket = Functions.formatTicket(seat, name, surName, email, price);
                 ticketContents = Functions.updateArray(ticketContents, currentTicket);
             }
         }
