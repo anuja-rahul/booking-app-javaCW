@@ -13,6 +13,9 @@ public class Ticket {
         this.person = person;
     }
 
+    // Getters
+    // Setters
+
     public static double getPrice(String column){
         int currentRow = Integer.valueOf(column);
         double price = 0;
