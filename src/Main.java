@@ -87,7 +87,7 @@ public class Main {
                                     dataBase.updateSeatRecord(newBooking, true);
 
                                     manageTicket(newSeat[1], newSeat[0], person, dataBase, true);
-                                    Functions.printDoubleArrays(dataBase.ticketRecord);
+                                    // Functions.printDoubleArrays(dataBase.ticketRecord);
 
                                 }else {
                                     System.out.println("\nInvalid Seat !\n");
@@ -112,7 +112,7 @@ public class Main {
                                     dataBase.updateSeatRecord(removeBooking, false);
 
                                     manageTicket(removeSeat[1], removeSeat[0], person, dataBase, false);
-                                    Functions.printDoubleArrays(dataBase.ticketRecord);
+                                    // Functions.printDoubleArrays(dataBase.ticketRecord);
 
 
                                 }else {
@@ -133,9 +133,13 @@ public class Main {
 
                             case 5:
                                 // Maintain a ticket price record
+                                double totalSales = dataBase.getTotalSales();
+                                Ticket.printTickets(dataBase.ticketRecord, totalSales);
+                                // System.out.println(totalSales);
                                 break;
 
                             case 6:
+                                String[] checkSeat = getSeatInfo();
                                 break;
                         }
 

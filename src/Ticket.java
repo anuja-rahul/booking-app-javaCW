@@ -1,10 +1,10 @@
 public class Ticket {
 
     public static String[][] ticketPrices = {{"1", "6", "200"}, {"6", "10", "150"}, {"10", "15", "180"}};
-    private String row;
-    private String seat;
-    private double price;
-    private Person person;
+    private final String row;
+    private final String seat;
+    private final double price;
+    private final Person person;
 
     public Ticket(String row, String seat, double price, Person person){
         this.row = row;
@@ -32,4 +32,30 @@ public class Ticket {
         return new String[]{this.seat, "1", String.valueOf(this.price), this.person.getName(),
                 this.person.getSurname(), this.person.getEmail()};
     }
+
+    public static void printTickets(String[][] ticketRecord, double totalSales){
+        //Functions.printArrays(ticket);
+        System.out.println("\nTickets Information\n___________________\n");
+        System.out.println("Total Sales: $" + totalSales + "\n\n");
+        for (String[] record: ticketRecord){
+            if (Functions.checkArrayValues("1", record)){
+
+                String seat = record[0];
+                double price = Double.valueOf(record[2]);
+                String name = record[3];
+                String surName = record[4];
+                String email = record[5];
+
+                // Do something
+                System.out.printf("""
+                Seat:   %s
+                Price:  $%.2f
+                Name:   %s %s
+                e-mail: %s
+                
+                """, seat, price, name, surName, email);
+            }
+        }
+    }
+
 }

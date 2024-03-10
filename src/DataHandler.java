@@ -58,6 +58,20 @@ public class DataHandler {
         }
     }
 
+    public double getTotalSales(){
+        int idx = 0;
+        double total = 0;
+        for (String[] ticket: ticketRecord){
+            if (Functions.checkArrayValues("1", ticket)){
+                String[] currentRecord = ticketRecord[idx];
+                double currentRecordValue = Double.valueOf(currentRecord[2]);
+                total = total + currentRecordValue;
+            }
+            idx ++;
+        }
+        return total;
+    }
+
 
     public void addNewBookedSeat(String[] newSeatArray){
         for(String seat: newSeatArray){

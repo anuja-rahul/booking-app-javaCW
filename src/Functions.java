@@ -1,15 +1,15 @@
 /**
  * The class (Functions) includes: <br>
- * {@linkplain #updateArray(String[], String) updateArray} <br>
- * {@linkplain #updateDoubleArray(String[][], String[]) updateDoubleArray} <br>
- * {@linkplain #removeFromArray(String[], String) removeFromArray} <br>
- * {@linkplain #checkArrayValues(String, String[]) checkArrayValues} <br>
- * {@linkplain #getIndex(String[], String) getIndex} <br>
- * {@linkplain #assignAllSeats() assignAllSeats} <br>
- * {@linkplain #printSeatingPlan(String[][]) printSeatingPlan} <br>
- * {@linkplain #validateSeatInputs(String, String) validateSeatInputs} <br>
- * {@linkplain #printArrays(String[]) printArrays} <br>
- * {@linkplain #printDoubleArrays(String[][]) printDoubleArrays} <br>
+ * {@link #updateArray(String[], String) updateArray} <br>
+ * {@link #updateDoubleArray(String[][], String[]) updateDoubleArray} <br>
+ * {@link #removeFromArray(String[], String) removeFromArray} <br>
+ * {@link #checkArrayValues(String, String[]) checkArrayValues} <br>
+ * {@link #getIndex(String[], String) getIndex} <br>
+ * {@link #assignAllSeats() assignAllSeats} <br>
+ * {@link #printSeatingPlan(String[][]) printSeatingPlan} <br>
+ * {@link #validateSeatInputs(String, String) validateSeatInputs} <br>
+ * {@link #printArrays(String[]) printArrays} <br>
+ * {@link #printDoubleArrays(String[][]) printDoubleArrays} <br>
  *
  * @author
  *          Anuja Rahul Gunasinghe
@@ -43,7 +43,8 @@ public class Functions {
     }
 
     /**
-     * Adds a given value to a specified 2D array.
+     * Adds a given value to a specified 2D array. <br>
+     * (Used for debugging purposes)
      * @param currentArray
      *              The 2D array that needs to be changed.
      * @param value
@@ -133,6 +134,7 @@ public class Functions {
     /**
      * returns string[] array of all the seats.
      * from A1 to D14
+     *
      * @return
      *          a string array of seat ids.
      */
@@ -190,6 +192,16 @@ public class Functions {
         System.out.println("\n");
     }
 
+    /**
+     * Returns a boolean value depending on the availability of given row
+     * and column in the class attributes(rows, columns)
+     * @param row
+     *              row that need to be verified
+     * @param column
+     *              column that need to be verified
+     * @return
+     *              boolean (true/false)
+     */
     public static boolean validateSeatInputs(String row, String column){
         row =  row.toUpperCase();
         boolean result = false;
@@ -207,7 +219,7 @@ public class Functions {
 
 
     /**
-     * Prints out any given string array
+     * Prints out any given string array <br>
      * (for debugging purposes)
      * @param array
      *              The array that needs to be printed.
@@ -219,8 +231,8 @@ public class Functions {
     }
 
     /**
-     * Prints out any given 2D string array
-     *        (for debugging purposes)
+     * Prints out any given 2D string array <br>
+     *(for debugging purposes)
      * @param array
      *              The 2D array that needs to be printed.
      */
