@@ -77,9 +77,7 @@ public class Ticket {
 
         for (String[] record: ticketRecord){
             if (Functions.checkArrayValues("1", record)){
-                String[] dataArray = {record[0], record[2], record[3], record[4], record[5]};
-
-                String currentTicket = Functions.formatTicket(dataArray);
+                String currentTicket = Functions.formatTicket(record);
                 ticketContents = Functions.updateArray(ticketContents, currentTicket);
             }
         }

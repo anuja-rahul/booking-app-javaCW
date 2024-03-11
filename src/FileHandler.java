@@ -28,7 +28,7 @@ public class FileHandler {
         String name =  person.getName();
         String surName = person.getSurname();
         String email = person.getEmail();
-        String[] dataArray = {seat, String.valueOf(price), name, surName, email};
+        String[] dataArray = {seat, "1", String.valueOf(price), name, surName, email};
 
         if (write){
             String fileContent = Functions.formatTicket(dataArray);

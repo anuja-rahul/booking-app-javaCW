@@ -15,7 +15,7 @@
  * <p> Usage:
  *     <pre>
  *     {@code
- *     // Initializing an object and seat/ticket records
+ *     // Initializing an object and  assigning default values to seat, ticket records
  *     DataHandler dataBase = new DataHandler(bookedSeats);
  *     dataBase.seatRecord = dataBase.initRecords(true);
  *     dataBase.ticketRecord = dataBase.initRecords(false);
@@ -27,7 +27,7 @@
  *     database.updateSeatRecord(seat, true);
  *     dataBase.updateTicketRecord(currentTicket, true);
  *
- *     // Removing a existing booking record
+ *     // Removing an existing booking record
  *     database.removeBookedSeat(removedSeatArray);
  *     database.updateAvailableSeats(false);
  *     database.updateSeatRecord(seat, false);
