@@ -1,3 +1,19 @@
+/**
+ * The java class Ticket holds the relevant tickets information and
+ * handles the generation and pricing of tickets.
+ * <br><br>
+ * <p> Usage:
+ *     <pre>
+ *     {@code
+ *     Ticket ticket = new Ticket(row, seat, price, person);
+ *     }
+ *     </pre>
+ * </p>
+ * @author Anuja Rahul Gunasinghe
+ * @since  2024-03-10
+ * @version 1.0
+ *
+ */
 public class Ticket {
 
     public static String[][] ticketPrices = {{"1", "6", "200"}, {"6", "10", "150"}, {"10", "15", "180"}};

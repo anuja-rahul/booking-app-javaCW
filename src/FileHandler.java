@@ -1,6 +1,29 @@
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+
+/**
+ * The java class FileHandler holds all the methods related to
+ * creation, editing and deletion of ticket text files.
+ * {@link #createDirectory() createDirectory} <br>
+ * {@link #writeToFile(boolean) writeToFile} <br>
+ * <br><br>
+ *  <p> Usage:
+ *      <pre>
+ *      {@code
+ *      FileHandler fileHandler = new FileHandler(ticket);
+ *      // Creates a file
+ *      fileHandler.writeToFile(true);
+ *      // Deletes a file
+ *      fileHandler.writeToFile(false);
+ *      }
+ *      </pre>
+ *  </p>
+ * @author Anuja Rahul Gunasinghe
+ * @since  2024-03-10
+ * @version 1.0
+ *
+ */
 public class FileHandler {
 
     final String rootPath = "tickets/";

@@ -12,9 +12,9 @@ import java.util.*;
 /**
  * Main class for booking-app package.<br>
  * The class (Main) includes: <br>
- * {@linkplain #getChoice(int) getChoice} <br>
- * {@linkplain #getUserInfo() getUserInfo} <br>
- * {@linkplain #getSeatInfo() getSeatInfo} <br>
+ * {@link #getChoice(int) getChoice} <br>
+ * {@link #getUserInfo() getUserInfo} <br>
+ * {@link #getSeatInfo() getSeatInfo} <br>
  *
  * <br> <br>
  * For additional information, visit the
