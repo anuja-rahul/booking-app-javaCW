@@ -18,7 +18,7 @@ import java.util.*;
  *
  * <br> <br>
  * For additional information, visit the
- * <a href="https://github.com/anuja-rahul/booking-app-javaCW/blob/main/README.md">Documentation</a>.
+ * <a href="https://github.com/anuja-rahul/booking-app-javaCW/blob/main/Documentation/index.html">Documentation</a>.
  *
  * @author Anuja Rahul Gunasinghe
  * @since @2024-03-10
@@ -212,5 +212,5 @@ public class Main {
 
 /*
 For further references, control flow diagrams and documentation visit:
-    https://github.com/anuja-rahul/booking-app-javaCW/blob/main/README.md
+    https://github.com/anuja-rahul/booking-app-javaCW/blob/main/Documentation/index.html
  */
