@@ -20,8 +20,9 @@ import java.util.*;
  * For additional information, visit the
  * <a href="https://github.com/anuja-rahul/booking-app-javaCW/blob/main/README.md">Documentation</a>.
  *
- * @author
- *          Anuja Rahul Gunasinghe
+ * @author Anuja Rahul Gunasinghe
+ * @since @2024-03-10
+ * @version 1.0
  */
 public class Main {
     public static void main(String[] args) {

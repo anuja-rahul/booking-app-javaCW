@@ -1,3 +1,54 @@
+/**
+ * The java class DataHandler holds the records of each ticket, purchase, status and
+ * contains the methods to modify and update each of these records.
+ * <br><br>
+ * {@link #initRecords(boolean) initRecords} <br>
+ * {@link #updateSeatRecord(String[], boolean) updateSeatRecord} <br>
+ * {@link #updateTicketRecord(String[], boolean) updateTicketRecord} <br>
+ * {@link #getTotalSales() getTotalSales} <br>
+ * {@link #addNewBookedSeat(String[]) addNewBookedSeat} <br>
+ * {@link #removeBookedSeat(String[]) removeBookedSeat} <br>
+ * {@link #updateAvailableSeats(boolean) updateAvailableSeats} <br>
+ * {@link #getFirstAvailableSeat() getFirstAvailableSeat} <br>
+ * {@link #getSeatInformation(String[]) getSeatInformation} <br>
+ * <br><br>
+ * <p> Usage:
+ *     <pre>
+ *     {@code
+ *     // Initializing an object and seat/ticket records
+ *     DataHandler dataBase = new DataHandler(bookedSeats);
+ *     dataBase.seatRecord = dataBase.initRecords(true);
+ *     dataBase.ticketRecord = dataBase.initRecords(false);
+ *
+ *
+ *     // Adding a new booking record
+ *     database.addNewBookedSeat(newSeatArray);
+ *     database.updateAvailableSeats(true);
+ *     database.updateSeatRecord(seat, true);
+ *     dataBase.updateTicketRecord(currentTicket, true);
+ *
+ *     // Removing a existing booking record
+ *     database.removeBookedSeat(removedSeatArray);
+ *     database.updateAvailableSeats(false);
+ *     database.updateSeatRecord(seat, false);
+ *     dataBase.updateTicketRecord(currentTicket, false);
+ *
+ *     // Getting the first available seat
+ *     String seat = database.getFirstAvailableSeat();
+ *
+ *     // Checking seat availability
+ *     String[] result = database.getSeatInformation(seatInfo);
+ *
+ *     // Get the total of all sold tickets
+ *     double sales =  database.getTotalSales();
+ *
+ *     }
+ *     </pre>
+ * </p>
+ * @author Anuja Rahul Gunasinghe
+ * @since  2024-03-10
+ * @version 1.0
+ */
 public class DataHandler {
 
     String[] bookedSeats;

@@ -1,3 +1,18 @@
+/**
+ * The java class Person holds the relevant user information after each purchase of a ticket.
+ * <br><br>
+ * <p> Usage:
+ *     <pre>
+ *     {@code
+ *     Person person = new Person(name, surname, email);
+ *     }
+ *     </pre>
+ * </p>
+ * @author Anuja Rahul Gunasinghe
+ * @since  2024-03-10
+ * @version 1.0
+ *
+ */
 public class Person {
     private String name;
     private String surname;

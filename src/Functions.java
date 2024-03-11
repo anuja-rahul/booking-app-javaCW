@@ -1,5 +1,5 @@
 /**
- * The class (Functions) includes: <br>
+ * The class (Functions) holds the methods: <br>
  * {@link #updateArray(String[], String) updateArray} <br>
  * {@link #removeFromArray(String[], String) removeFromArray} <br>
  * {@link #checkArrayValues(String, String[]) checkArrayValues} <br>
@@ -7,7 +7,8 @@
  * {@link #assignAllSeats() assignAllSeats} <br>
  * {@link #printSeatingPlan(String[][]) printSeatingPlan} <br>
  * {@link #validateSeatInputs(String, String) validateSeatInputs} <br>
- * {@link #printArrays(String[]) printArrays} <br>*
+ * {@link #printArrays(String[]) printArrays} <br>
+ * {@link #formatTicket(String[]) formatTicket} <br>
  * @author
  *          Anuja Rahul Gunasinghe
  */
@@ -208,6 +209,16 @@ public class Functions {
         }
     }
 
+    /**
+     * Once the array containing ticket information is given,
+     * formats the values in the said array in a presentable manner and returns the
+     * formatted string.
+     * @param ticketInfo
+     *                  An array of length(6) containing user's name, surname,
+     *                  validation, seat, price, and email.
+     * @return
+     *                  A formatted string representing a ticket.
+     */
     public static String formatTicket(String[] ticketInfo){
         String seat = ticketInfo[0];
         Double price = Double.valueOf(ticketInfo[2]);
