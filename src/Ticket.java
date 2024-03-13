@@ -22,6 +22,17 @@ public class Ticket {
     private  double price;
     private  Person person;
 
+    /**
+     * Instantiates a new Ticket object
+     * @param row
+     *              ticket row (A-D)
+     * @param seat
+     *              ticket column (1-14)
+     * @param price
+     *              price of the ticket
+     * @param person
+     *              a new Person object of the current user
+     */
     public Ticket(String row, String seat, double price, Person person){
         this.row = row;
         this.seat = seat;
