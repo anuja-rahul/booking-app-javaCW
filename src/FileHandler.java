@@ -40,7 +40,8 @@ public class FileHandler {
     }
 
     /**
-     * Checks and if it doesn't exist, creates a tickets directory each time an object is instantiated.
+     * Checks for a specific directory  and if it doesn't exist, <br>
+     * creates the directory each time an object is instantiated.
      */
     private void createDirectory(){
         if (!folderPath.exists()){
@@ -55,14 +56,14 @@ public class FileHandler {
      */
     public void writeToFile(boolean write){
 
-        String seat = this.ticket.getSeat();
+        String seat = this.ticket.seat();
         String fileName = rootPath + seat + ".txt";
-        double price = this.ticket.getPrice();
+        double price = this.ticket.price();
 
-        Person person = this.ticket.getPerson();
-        String name =  person.getName();
-        String surName = person.getSurname();
-        String email = person.getEmail();
+        Person person = this.ticket.person();
+        String name =  person.name();
+        String surName = person.surname();
+        String email = person.email();
         String[] dataArray = {seat, "1", String.valueOf(price), name, surName, email};
 
         if (write){

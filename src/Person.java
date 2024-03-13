@@ -1,54 +1,56 @@
 /**
- * The java class Person holds the relevant user information after each purchase of a ticket.
+ * The record Person holds the relevant user information after the purchasing of a ticket.
  * <br><br>
  * <p> Usage:
- *     <pre>
+ * <pre>
  *     {@code
  *     Person person = new Person(name, surname, email);
  *     }
  *     </pre>
  * </p>
- * @author Anuja Rahul Gunasinghe
- * @since  2024-03-10
- * @version 1.0
  *
+ * @author Anuja Rahul Gunasinghe
+ * @version 1.0
  */
-public class Person {
-    private String name;
-    private String surname;
-    private String email;
-
-    public Person(String name, String surname, String email){
-        this.name = name;
-        this.surname = surname;
-        this.email = email;
-    }
-
-    //Setters
-
-    public void setName(String name){
-        this.name = name;
-    }
-
-    public void setSurname(String surname){
-        this.surname = surname;
-    }
-
-    public void setEmail(String email){
-        this.email = email;
-    }
+public record Person(String name, String surname, String email) {
+    /**
+     * Instantiate a new Person object
+     *
+     * @param name    first name of the person
+     * @param surname surname of the person
+     * @param email   email of the person
+     */
+    public Person {}
 
     // Getters
 
-    public String getName(){
+    /**
+     * gets the name attribute of the Person object
+     * @return
+     *          name attribute
+     */
+    @Override
+    public String name() {
         return this.name;
     }
 
-    public String getSurname(){
+    /**
+     * gets the surname attribute of the Person object
+     * @return
+     *          surname attribute
+     */
+    @Override
+    public String surname() {
         return this.surname;
     }
 
-    public  String getEmail(){
+    /**
+     * gets the email attribute of the Person object
+     * @return
+     *          email attribute
+     */
+    @Override
+    public String email() {
         return this.email;
     }
 

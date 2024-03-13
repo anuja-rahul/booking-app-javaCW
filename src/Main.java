@@ -24,6 +24,11 @@ import java.util.*;
  * @version 1.0
  */
 public class Main {
+
+    /**
+     * Handles every input and output
+     * @param args any
+     */
     public static void main(String[] args) {
 
         String[] bookedSeats = {};
@@ -93,7 +98,7 @@ public class Main {
                                 String[] removeBooking = {removeSeat[0] + removeSeat[1]};
                                 if (Functions.validateSeatInputs(removeSeat[0], removeSeat[1])){
 
-                                    double price = Ticket.getPrice(removeSeat[1]);
+                                    double price = Ticket.getTicketPrice(removeSeat[1]);
                                     System.out.println("\n" + price + "\n");
 
 
@@ -233,7 +238,7 @@ public class Main {
      *              A new Ticket object containing the all the seat information and a Person object
      */
     private static Ticket manageTicket(String column, String row, Person person, DataHandler dataBase, boolean bought){
-        double price = Ticket.getPrice(column);
+        double price = Ticket.getTicketPrice(column);
         Ticket newTicket = new Ticket(column, (row + column), price, person);
         String[] currentTicket = newTicket.generateTicket();
         dataBase.updateTicketRecord(currentTicket, bought);
