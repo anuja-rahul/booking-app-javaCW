@@ -1,5 +1,5 @@
 /**
- * The java class Ticket holds the relevant tickets information and
+ * The record Ticket holds the relevant tickets information and
  * handles the generation and pricing of tickets.
  * <br><br>
  * <p> Usage:
