@@ -30,6 +30,7 @@ public class Main {
      * @param args any
      */
     public static void main(String[] args) {
+        // TODO: add validation for existing seats before trying to rebook or delete them
 
         String[] bookedSeats = {};
 
