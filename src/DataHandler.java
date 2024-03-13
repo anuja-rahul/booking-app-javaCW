@@ -14,7 +14,7 @@
  * <p> Usage:
  *     <pre>
  *     {@code
- *     // Initializing an object and  assigning default values to seat, ticket records
+ *     // Initializing an object and assigning default values to seat & ticket records
  *     DataHandler dataBase = new DataHandler(bookedSeats);
  *     dataBase.seatRecord = dataBase.initRecords(true);
  *     dataBase.ticketRecord = dataBase.initRecords(false);
@@ -45,7 +45,6 @@
  *     </pre>
  * </p>
  * @author Anuja Rahul Gunasinghe
- * @since  2024-03-10
  * @version 1.0
  */
 public class DataHandler {
@@ -57,19 +56,22 @@ public class DataHandler {
 
     String[][] ticketRecord = new String[52][3];
 
+    /**
+     * constructor for the DataHandler class
+     * @param bookedSeats
+     *                  an array containing booked seats of current instance
+     */
     public DataHandler(String[] bookedSeats){
         this.bookedSeats = bookedSeats;
     }
 
-    // Getters
-    public String[] getBookedSeats(){
-        return this.bookedSeats;
-    }
-
-    public String[] getAvailableSeats(){
-        return this.availableSeats;
-    }
-
+    /**
+     * assign records for seatRecord and ticketRecord class attributes.
+     * @param seats
+     *              if true, proceeds for seatRecord and if false, proceeds for ticketRecord
+     * @return
+     *              a temporary array containing placeholder values until new values are assigned
+     */
     public  String[][] initRecords(boolean seats){
         String[][] tempRecord = new String[52][2];
         if (!seats){
@@ -90,6 +92,14 @@ public class DataHandler {
         return tempRecord;
     }
 
+    /**
+     * Updates the seatRecord according to the given parameters
+     * @param seat
+     *              an array containing the seat row and column
+     * @param booked
+     *              assigns a validation mark depending on true/false <br>
+     *              (1) for booked and (-1) for available
+     */
     public void updateSeatRecord(String[] seat, boolean booked){
         int idx = Functions.getIndex(allSeats, seat[0]);
         if (booked){
@@ -99,6 +109,13 @@ public class DataHandler {
         }
     }
 
+    /**
+     * Updates the seatRecord according to the given parameters
+     * @param ticket
+     *              an array containing the ticket's information
+     * @param bought
+     *              assigns a validation mark depending on true/false
+     */
     public void updateTicketRecord(String[] ticket, boolean bought){
         int idx = Functions.getIndex(allSeats, ticket[0]);
         if (bought){
@@ -108,6 +125,11 @@ public class DataHandler {
         }
     }
 
+    /**
+     * Calculates the total sales amount
+     * @return
+     *          the double value of total sales
+     */
     public double getTotalSales(){
         int idx = 0;
         double total = 0;
@@ -122,6 +144,11 @@ public class DataHandler {
         return total;
     }
 
+    /**
+     * Adds a new booking to the object attribute bookedSeats
+     * @param newSeatArray
+     *              an array containing the seat row and column
+     */
     public void addNewBookedSeat(String[] newSeatArray){
         for(String seat: newSeatArray){
             if(Functions.checkArrayValues(seat, availableSeats)){
@@ -130,6 +157,11 @@ public class DataHandler {
         }
     }
 
+    /**
+     * removes a pre-existing booking from the object attribute bookedSeats
+     * @param removedSeatArray
+     *              an array containing the seat row and column
+     */
     public void removeBookedSeat(String[] removedSeatArray){
         for (String seat: removedSeatArray){
             if (!Functions.checkArrayValues(seat, availableSeats)){
@@ -138,6 +170,11 @@ public class DataHandler {
         }
     }
 
+    /**
+     * updates the class attribute availableSeats according to the updated object attribute bookedSeats
+     * @param booking
+     *              if true, removes the seat from availableSeats and vise versa
+     */
     public void updateAvailableSeats(boolean booking){
         for (String seat: allSeats){
             if (booking){
@@ -152,7 +189,12 @@ public class DataHandler {
         }
     }
 
-
+    /**
+     * sorts through the seatRecord and checks for predetermined validation markers. <br>
+     * if (-1), seat is available and if (1), seat is booked.
+     * @return
+     *          the first ever record that comes across with a validation marker (-1)
+     */
     public String getFirstAvailableSeat(){
         String result = "0";
         for (String[] record: seatRecord){
@@ -164,7 +206,14 @@ public class DataHandler {
         return result;
     }
 
-
+    /**
+     * Sorts through the ticketRecord and checks to see if the given seat is available or booked. <br>
+     * if booked, returns the information about the ticket and user.
+     * @param seatInfo
+     *              an array containing the seat row and column
+     * @return
+     *              an array containing the booking information or the availability of the seat
+     */
     public String[] getSeatInformation(String[] seatInfo){
         String[] result;
         String[] currentSeat = {};

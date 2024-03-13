@@ -18,10 +18,9 @@ import java.util.*;
  *
  * <br> <br>
  * For additional information, visit the
- * <a href="https://github.com/anuja-rahul/booking-app-javaCW/blob/main/Documentation/index.html">Documentation</a>.
+ * <a href="https://github.com/anuja-rahul/booking-app-javaCW">Documentation</a>.
  *
  * @author Anuja Rahul Gunasinghe
- * @since 2024-03-10
  * @version 1.0
  */
 public class Main {
