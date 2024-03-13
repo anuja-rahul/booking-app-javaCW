@@ -20,7 +20,6 @@ import java.io.IOException;
  *      </pre>
  *  </p>
  * @author Anuja Rahul Gunasinghe
- * @since  2024-03-10
  * @version 1.0
  *
  */
@@ -30,17 +29,30 @@ public class FileHandler {
     final File folderPath = new File("tickets");
     Ticket ticket;
 
+    /**
+     * Instantiate a new FileHandler object
+     * @param ticket
+     *              a new Ticket object
+     */
     public FileHandler(Ticket ticket){
         createDirectory();
         this.ticket = ticket;
     }
 
+    /**
+     * Checks and if it doesn't exist, creates a tickets directory each time an object is instantiated.
+     */
     private void createDirectory(){
         if (!folderPath.exists()){
             folderPath.mkdirs();
         }
     }
 
+    /**
+     * Either creates a new ticket file or deletes a pre-existing ticket file depending on the given parameters.
+     * @param write
+     *              if true, creates a new ticket file and vise versa.
+     */
     public void writeToFile(boolean write){
 
         String seat = this.ticket.getSeat();
