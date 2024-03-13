@@ -91,6 +91,10 @@ public class Ticket {
         return price;
     }
 
+    /**
+     *
+     * @return
+     */
     public String[] generateTicket(){
         // {seat, 1, price}
         return new String[]{this.seat, "1", String.valueOf(this.price), this.person.getName(),
