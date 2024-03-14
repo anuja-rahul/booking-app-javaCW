@@ -28,8 +28,6 @@ public record Ticket(String row, String seat, double price, Person person) {
     public Ticket {
     }
 
-    // Getters
-
     /**
      * when the column is given, sorts through the class attribute
      * ticketPrices and returns the price of the ticket.

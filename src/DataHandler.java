@@ -65,6 +65,12 @@ public class DataHandler {
         this.bookedSeats = bookedSeats;
     }
 
+    // Getters
+
+    public String[] getBookedSeats(){
+        return this.bookedSeats;
+    }
+
     /**
      * assign records for seatRecord and ticketRecord class attributes.
      * @param seats

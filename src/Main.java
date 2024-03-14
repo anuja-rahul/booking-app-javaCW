@@ -30,7 +30,6 @@ public class Main {
      * @param args any
      */
     public static void main(String[] args) {
-        // TODO: add validation for existing seats before trying to rebook or delete them
 
         String[] bookedSeats = {};
 
@@ -78,15 +77,17 @@ public class Main {
                                 String[] newBooking = {newSeat[0] + newSeat[1]};
 
                                 if (Functions.validateSeatInputs(newSeat[0], newSeat[1])){
+                                    if (Functions.checkArrayValues(newBooking[0], dataBase.availableSeats)){
+                                        dataBase.addNewBookedSeat(newBooking);
+                                        dataBase.updateAvailableSeats(true);
+                                        dataBase.updateSeatRecord(newBooking, true);
 
-                                    dataBase.addNewBookedSeat(newBooking);
-                                    dataBase.updateAvailableSeats(true);
-                                    dataBase.updateSeatRecord(newBooking, true);
-
-                                    Ticket ticket = manageTicket(newSeat[1], newSeat[0], person, dataBase, true);
-                                    FileHandler newTicketFile = new FileHandler(ticket);
-                                    newTicketFile.writeToFile(true);
-
+                                        Ticket ticket = manageTicket(newSeat[1], newSeat[0], person, dataBase, true);
+                                        FileHandler newTicketFile = new FileHandler(ticket);
+                                        newTicketFile.writeToFile(true);
+                                    } else {
+                                        System.out.println("\nSeat Unavailable !\n");
+                                    }
                                 }else {
                                     System.out.println("\nInvalid Seat !\n");
                                 }
@@ -97,22 +98,25 @@ public class Main {
                                 String[] removeSeat = getSeatInfo();
                                 // removeBooking = {row column} ex: {"A1"}
                                 String[] removeBooking = {removeSeat[0] + removeSeat[1]};
+
+
+
                                 if (Functions.validateSeatInputs(removeSeat[0], removeSeat[1])){
 
-                                    double price = Ticket.getTicketPrice(removeSeat[1]);
-                                    System.out.println("\n" + price + "\n");
+                                    if (Functions.checkArrayValues(removeBooking[0], dataBase.getBookedSeats())){
+                                        // double price = Ticket.getTicketPrice(removeSeat[1]);
+                                        // System.out.println("\n" + price + "\n");
+                                        dataBase.updateAvailableSeats(false);
+                                        dataBase.removeBookedSeat(removeBooking);
+                                        dataBase.updateSeatRecord(removeBooking, false);
 
+                                        Ticket ticket = manageTicket(removeSeat[1], removeSeat[0], person, dataBase, false);
+                                        FileHandler newTicketFile = new FileHandler(ticket);
+                                        newTicketFile.writeToFile(false);
 
-                                    dataBase.updateAvailableSeats(false);
-
-                                    dataBase.removeBookedSeat(removeBooking);
-                                    dataBase.updateSeatRecord(removeBooking, false);
-
-                                    Ticket ticket = manageTicket(removeSeat[1], removeSeat[0], person, dataBase, false);
-                                    FileHandler newTicketFile = new FileHandler(ticket);
-                                    newTicketFile.writeToFile(false);
-
-
+                                    } else {
+                                        System.out.println("\nSeat not booked !\n");
+                                    }
                                 }else {
                                     System.out.println("\nInvalid Seat !\n");
                                 }
@@ -218,9 +222,10 @@ public class Main {
         String currentRow = String.valueOf(row).toUpperCase();
 
         System.out.print("\nEnter the column (1-14): ");
-        String column = scan.next();
+        char column = scan.next().charAt(0);
+        String currentColumn = String.valueOf(column);
 
-        return new String[]{currentRow, column};
+        return new String[]{currentRow, currentColumn};
     }
 
     /**
