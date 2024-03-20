@@ -38,8 +38,6 @@ public class Main {
         dataBase.seatRecord = dataBase.initRecords(true);
         dataBase.ticketRecord = dataBase.initRecords(false);
 
-        String[] userInfo = getUserInfo();
-        Person person = new Person(userInfo[0], userInfo[1], userInfo[2]);
 
         int choice = -1;
         while(choice !=0){
@@ -71,6 +69,9 @@ public class Main {
                         switch (choice){
 
                             case 1:
+                                String[] userInfo = getUserInfo();
+                                Person person = new Person(userInfo[0], userInfo[1], userInfo[2]);
+
                                 // newSeat = {row, column} ex: {"A", "1"}
                                 String[] newSeat = getSeatInfo();
                                 // newBooking = {row column} ex: {"A1"}
@@ -99,10 +100,7 @@ public class Main {
                                 // removeBooking = {row column} ex: {"A1"}
                                 String[] removeBooking = {removeSeat[0] + removeSeat[1]};
 
-
-
                                 if (Functions.validateSeatInputs(removeSeat[0], removeSeat[1])){
-
                                     if (Functions.checkArrayValues(removeBooking[0], dataBase.getBookedSeats())){
                                         // double price = Ticket.getTicketPrice(removeSeat[1]);
                                         // System.out.println("\n" + price + "\n");
@@ -110,7 +108,8 @@ public class Main {
                                         dataBase.removeBookedSeat(removeBooking);
                                         dataBase.updateSeatRecord(removeBooking, false);
 
-                                        Ticket ticket = manageTicket(removeSeat[1], removeSeat[0], person, dataBase, false);
+                                        Person delPerson = new Person("name", "surname", "email");
+                                        Ticket ticket = manageTicket(removeSeat[1], removeSeat[0], delPerson, dataBase, false);
                                         FileHandler newTicketFile = new FileHandler(ticket);
                                         newTicketFile.writeToFile(false);
 

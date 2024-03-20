@@ -183,14 +183,13 @@ public class DataHandler {
      */
     public void updateAvailableSeats(boolean booking){
         for (String seat: allSeats){
-            if (booking){
-                if (Functions.checkArrayValues(seat, this.bookedSeats)){
+            if (Functions.checkArrayValues(seat, this.bookedSeats)){
+                if (booking){
                     availableSeats = Functions.removeFromArray(availableSeats, seat);
-                }
-            }else {
-                if (!Functions.checkArrayValues(seat, this.bookedSeats)){
+                } else {
                     availableSeats = Functions.updateArray(availableSeats, seat);
                 }
+                break;
             }
         }
     }
