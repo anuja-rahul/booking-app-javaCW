@@ -14,7 +14,6 @@ packages were used.
     - double
     - boolean
     - int
-    - int[]
     - String
     - String[]
     - String[][]
@@ -22,7 +21,7 @@ packages were used.
 ---
 
 ![Mermaid](https://img.shields.io/badge/Mermaid-000?style=for-the-badge&logo=mermaid)
-![Mrkdown](https://img.shields.io/badge/Markdown-000?style=for-the-badge&logo=markdown)
+![Markdown](https://img.shields.io/badge/Markdown-000?style=for-the-badge&logo=markdown)
 
 
 ```mermaid
