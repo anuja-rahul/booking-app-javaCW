@@ -28,25 +28,23 @@ packages were used.
 ```mermaid
 
 classDiagram
-  W20530884_20232268 -- DataHandler
-  Functions -- W20530884_20232268
-  Functions -- DataHandler
-  Functions -- Ticket
-  Functions -- FileHandler
+  W20530884_20232268 <|--|> DataHandler
 
-  Person -- W20530884_20232268
-  Ticket -- W20530884_20232268
-  Ticket -- Person
+  Functions --|> W20530884_20232268
+  Functions --|> DataHandler
+  Functions --|> Ticket
+  Functions --|> FileHandler
+
+  Person <|-- W20530884_20232268
+  Ticket <|--|> W20530884_20232268
+  Ticket o-- Person
   FileHandler *-- Ticket
 
-  class W20530884_20232268 {
-    +String[] args
-    +getChoice()
-    +getUserInfo()
-    +getSeatInfo()
-  }
-
-  class DataHandler {
+  W20530884_20232268 : +String[] args
+  W20530884_20232268: +getChoice()
+  W20530884_20232268: +getUserInfo()
+  W20530884_20232268: +getSeatInfo()
+  class DataHandler{
     +String[] bookedSeats
     +String[] availableSeats
     +String[] allSeats
@@ -63,7 +61,7 @@ classDiagram
     +getSeatInformation(String[])
   }
 
-  class FileHandler {
+  class FileHandler{
     -String rootPath
     -File folderPath
     -Ticket ticket
@@ -71,7 +69,7 @@ classDiagram
     -writeToFile(boolean)
   }
 
-  class Ticket {
+  class Ticket{
     -String row
     -String seat
     -double price
@@ -81,7 +79,7 @@ classDiagram
     +getTickets(String[][], double)
   }
 
-  class Person {
+  class Person{
     -String name
     -String surname
     -String email
@@ -90,7 +88,7 @@ classDiagram
     +getEmail()
   }
 
-  class Functions {
+  class Functions{
     +String[] rows
     +String[] columns
     +String[] shortRows
