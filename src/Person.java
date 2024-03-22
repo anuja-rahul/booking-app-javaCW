@@ -1,13 +1,13 @@
 /**
  * The record Person holds the relevant user information after the purchasing of a ticket.
  * <br><br>
- * <p> Usage:
+ *
+ * Usage:
  * <pre>
  *     {@code
  *     Person person = new Person(name, surname, email);
  *     }
  *     </pre>
- * </p>
  *
  * @author Anuja Rahul Gunasinghe
  * @version 1.0

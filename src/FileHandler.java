@@ -8,7 +8,8 @@ import java.io.IOException;
  * {@link #createDirectory() createDirectory} <br>
  * {@link #writeToFile(boolean) writeToFile} <br>
  * <br><br>
- *  <p> Usage:
+ *
+ *  Usage:
  *      <pre>
  *      {@code
  *      FileHandler fileHandler = new FileHandler(ticket);
@@ -18,7 +19,7 @@ import java.io.IOException;
  *      fileHandler.writeToFile(false);
  *      }
  *      </pre>
- *  </p>
+ *
  * @author Anuja Rahul Gunasinghe
  * @version 1.0
  *

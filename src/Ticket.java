@@ -2,13 +2,13 @@
  * The record Ticket holds the relevant tickets information and
  * handles the generation and pricing of tickets.
  * <br><br>
- * <p> Usage:
+ *
+ * Usage:
  * <pre>
  *     {@code
  *     Ticket ticket = new Ticket(row, seat, price, person);
  *     }
  *     </pre>
- * </p>
  *
  * @author Anuja Rahul Gunasinghe
  * @version 1.0
@@ -50,7 +50,10 @@ public record Ticket(String row, String seat, double price, Person person) {
         return price;
     }
 
+    // Getters and Setters were not implemented since there are no use cases for them.
+
     /**
+     * Generates an array including the ticket information.
      * @return a string array of ticket's information
      */
     public String[] generateTicket() {

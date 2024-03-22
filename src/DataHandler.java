@@ -11,7 +11,8 @@
  * {@link #getFirstAvailableSeat() getFirstAvailableSeat} <br>
  * {@link #getSeatInformation(String[]) getSeatInformation} <br>
  * <br><br>
- * <p> Usage:
+ * 
+ * Usage:
  *     <pre>
  *     {@code
  *     // Initializing an object and assigning default values to seat & ticket records
@@ -43,7 +44,7 @@
  *
  *     }
  *     </pre>
- * </p>
+ *
  * @author Anuja Rahul Gunasinghe
  * @version 1.0
  */
