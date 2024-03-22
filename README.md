@@ -36,74 +36,77 @@ pie
 ```mermaid
 
 classDiagram
-    W20530884_20232268 <|-- DataHandler
-    W20530884_20232268 <|-- FileHandler
-    W20530884_20232268 <|-- Ticket
-    W20530884_20232268 <|-- Person
-    W20530884_20232268 <|-- Functions
-    W20530884_20232268 : +String[] args
-    W20530884_20232268: +getChoice()
-    W20530884_20232268: +getUserInfo()
-    W20530884_20232268: +getSeatInfo()
-    class DataHandler{
-      +String[] bookedSeats
-      +String[] availableSeats
-      +String[] allSeats
-      +String[][] seatRecord
-      +String[][] ticketRecord
-      +initRecords(boolean)
-      +updateSeatRecord(String[], boolean)
-      +updateTicketRecord(String[], boolean)
-      +getTotalSales()
-      +addNewBookedSeat(String[])
-      +removeBookedSeat(String[])
-      +updateAvailableSeats(boolean)
-      +getFirstAvailableSeat()
-      +getSeatInformation(String[])
-    }
+  W20530884_20232268 <|-- DataHandler
+  W20530884_20232268 <|-- Functions
+  W20530884_20232268 <|-- FileHandler
+  W20530884_20232268 <|-- Person
+  W20530884_20232268 <|-- Ticket
+  Ticket <|-- Person
+  FileHandler <|-- Ticket
 
-    class FileHandler{
-      -String rootPath
-      -File folderPath
-      -Ticket ticket
-      -createDirectory()
-      -writeToFile(boolean)
-    }
+  W20530884_20232268 : +String[] args
+  W20530884_20232268: +getChoice()
+  W20530884_20232268: +getUserInfo()
+  W20530884_20232268: +getSeatInfo()
+  class DataHandler{
+    +String[] bookedSeats
+    +String[] availableSeats
+    +String[] allSeats
+    +String[][] seatRecord
+    +String[][] ticketRecord
+    +initRecords(boolean)
+    +updateSeatRecord(String[], boolean)
+    +updateTicketRecord(String[], boolean)
+    +getTotalSales()
+    +addNewBookedSeat(String[])
+    +removeBookedSeat(String[])
+    +updateAvailableSeats(boolean)
+    +getFirstAvailableSeat()
+    +getSeatInformation(String[])
+  }
 
-    class Ticket{
-        -String row
-        -String seat
-        -double price
-        -Person person
-        +getTicketPrice(String)
-        +generateTicket()
-        +getTickets(String[][], double)
-    }
+  class FileHandler{
+    -String rootPath
+    -File folderPath
+    -Ticket ticket
+    -createDirectory()
+    -writeToFile(boolean)
+  }
 
-    class Person{
-        -String name
-        -String surname
-        -String email
-        +getName()
-        +getSurname()
-        +getEmail()
-    }
+  class Ticket{
+    -String row
+    -String seat
+    -double price
+    -Person person
+    +getTicketPrice(String)
+    +generateTicket()
+    +getTickets(String[][], double)
+  }
 
-    class Functions{
-      +String[] rows
-      +String[] columns
-      +String[] shortRows
-      +String[] shortColumns
-      +updateArray(String[], String)
-      +removeFromArray(String[], String)
-      +checkArrayValues(String, String[])
-      +getIndex(String[], String)
-      +assignAllSeats()
-      +printSeatingPlan(String[][])
-      +validateSeatInputs(String, String)
-      +printArrays(String[])
-      +formatTicket(String[])
-    }
+  class Person{
+    -String name
+    -String surname
+    -String email
+    +getName()
+    +getSurname()
+    +getEmail()
+  }
+
+  class Functions{
+    +String[] rows
+    +String[] columns
+    +String[] shortRows
+    +String[] shortColumns
+    +updateArray(String[], String)
+    +removeFromArray(String[], String)
+    +checkArrayValues(String, String[])
+    +getIndex(String[], String)
+    +assignAllSeats()
+    +printSeatingPlan(String[][])
+    +validateSeatInputs(String, String)
+    +printArrays(String[])
+    +formatTicket(String[])
+  }
 
 ```
 
