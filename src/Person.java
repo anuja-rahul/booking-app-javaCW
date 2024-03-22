@@ -29,8 +29,7 @@ public record Person(String name, String surname, String email) {
      * @return
      *          name attribute
      */
-    @Override
-    public String name() {
+    public String getName() {
         return this.name;
     }
 
@@ -39,8 +38,7 @@ public record Person(String name, String surname, String email) {
      * @return
      *          surname attribute
      */
-    @Override
-    public String surname() {
+    public String getSurname() {
         return this.surname;
     }
 
@@ -49,8 +47,7 @@ public record Person(String name, String surname, String email) {
      * @return
      *          email attribute
      */
-    @Override
-    public String email() {
+    public String getEmail() {
         return this.email;
     }
 

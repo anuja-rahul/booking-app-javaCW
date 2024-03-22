@@ -58,8 +58,8 @@ public record Ticket(String row, String seat, double price, Person person) {
      */
     public String[] generateTicket() {
         // {seat, 1, name, surname, price}
-        return new String[]{this.seat, "1", String.valueOf(this.price), this.person.name(),
-                this.person.surname(), this.person.email()};
+        return new String[]{this.seat, "1", String.valueOf(this.price), this.person.getName(),
+                this.person.getSurname(), this.person.getEmail()};
     }
 
     /**

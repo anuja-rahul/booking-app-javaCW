@@ -62,10 +62,10 @@ public class FileHandler {
         double price = this.ticket.price();
 
         Person person = this.ticket.person();
-        String name =  person.name();
-        String surName = person.surname();
-        String email = person.email();
-        String[] dataArray = {seat, "1", String.valueOf(price), name, surName, email};
+        String name =  person.getName();
+        String surname = person.getSurname();
+        String email = person.getEmail();
+        String[] dataArray = {seat, "1", String.valueOf(price), name, surname, email};
 
         if (write){
             String fileContent = Functions.formatTicket(dataArray);
