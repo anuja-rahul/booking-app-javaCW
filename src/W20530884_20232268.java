@@ -10,8 +10,8 @@ Date: 09/03/2024
 import java.util.*;
 
 /**
- * Main class for booking-app package.<br>
- * The class (Main) includes: <br>
+ * W20530884_20232268 class for booking-app package.<br>
+ * The class (W20530884_20232268) includes: <br>
  * {@link #getChoice(int) getChoice} <br>
  * {@link #getUserInfo() getUserInfo} <br>
  * {@link #getSeatInfo() getSeatInfo} <br>
@@ -23,7 +23,7 @@ import java.util.*;
  * @author Anuja Rahul Gunasinghe
  * @version 1.0
  */
-public class Main {
+public class W20530884_20232268 {
 
     /**
      * Handles every input and output
