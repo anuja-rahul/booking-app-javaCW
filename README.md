@@ -34,7 +34,7 @@ classDiagram
   Functions --|> Ticket
   Functions --|> FileHandler
 
-  Person <|--|> W20530884_20232268
+  Person <|-- W20530884_20232268
   Ticket <|--|> W20530884_20232268
   Ticket o-- Person
   FileHandler *-- Ticket
