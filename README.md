@@ -1,4 +1,5 @@
 ![Java](https://img.shields.io/badge/java-000?style=for-the-badge&logo=openjdk&logoColor=f89820)
+![Mermaid](https://img.shields.io/badge/Mermaid-000?style=for-the-badge&logo=mermaid)
 
 ### Booking App (SD-02) `coursework`  
 
