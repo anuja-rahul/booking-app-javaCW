@@ -15,6 +15,7 @@ import java.util.*;
  * {@link #getChoice(int) getChoice} <br>
  * {@link #getUserInfo() getUserInfo} <br>
  * {@link #getSeatInfo() getSeatInfo} <br>
+ * {@link #manageTicket(String, String, Person, DataHandler, boolean) manageTicket} <br>
  *
  * <br> <br>
  * For additional information, visit the

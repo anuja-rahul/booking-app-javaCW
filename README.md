@@ -34,15 +34,16 @@ classDiagram
   Functions --|> Ticket
   Functions --|> FileHandler
 
-  Person <|-- W20530884_20232268
+  Person <|--|> W20530884_20232268
   Ticket <|--|> W20530884_20232268
   Ticket o-- Person
   FileHandler *-- Ticket
 
   W20530884_20232268 : +String[] args
-  W20530884_20232268: +getChoice()
+  W20530884_20232268: +getChoice(int)
   W20530884_20232268: +getUserInfo()
   W20530884_20232268: +getSeatInfo()
+  W20530884_20232268: +manageTicket(String, String, Person, DataHandler, boolean)
   class DataHandler{
     +String[] bookedSeats
     +String[] availableSeats
