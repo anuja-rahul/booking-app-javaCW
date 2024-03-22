@@ -1,5 +1,8 @@
 ![Java](https://img.shields.io/badge/java-000?style=for-the-badge&logo=openjdk&logoColor=f89820)
+
 ### Booking App (SD-02) `coursework`  
+
+---
 
 #### Note
 
@@ -15,6 +18,8 @@ packages were used.
     - String
     - String[]
     - String[][]
+
+---
 
 
 
