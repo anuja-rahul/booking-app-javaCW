@@ -1,5 +1,4 @@
 ![Java](https://img.shields.io/badge/java-000?style=for-the-badge&logo=openjdk&logoColor=f89820)
-![Mermaid](https://img.shields.io/badge/Mermaid-000?style=for-the-badge&logo=mermaid)
 
 ### Booking App (SD-02) `coursework`  
 
@@ -22,38 +21,32 @@ packages were used.
 
 ---
 
-<!--
+![Mermaid](https://img.shields.io/badge/Mermaid-000?style=for-the-badge&logo=mermaid)
+![Mrkdown](https://img.shields.io/badge/Markdown-000?style=for-the-badge&logo=markdown)
 
-```mermaid
-
-pie
-    title data distribution
-    "food" : 60
-    "water" : 40
-```
-
--->
 
 ```mermaid
 
 classDiagram
-  W20530884_20232268 <|--|> DataHandler
+  W20530884_20232268 -- DataHandler
+  Functions -- W20530884_20232268
+  Functions -- DataHandler
+  Functions -- Ticket
+  Functions -- FileHandler
 
-  Functions --|> W20530884_20232268
-  Functions --|> DataHandler
-  Functions --|> Ticket
-  Functions --|> FileHandler
-
-  Person <|-- W20530884_20232268
-  Ticket <|--|> W20530884_20232268
-  Ticket o-- Person
+  Person -- W20530884_20232268
+  Ticket -- W20530884_20232268
+  Ticket -- Person
   FileHandler *-- Ticket
 
-  W20530884_20232268 : +String[] args
-  W20530884_20232268: +getChoice()
-  W20530884_20232268: +getUserInfo()
-  W20530884_20232268: +getSeatInfo()
-  class DataHandler{
+  class W20530884_20232268 {
+    +String[] args
+    +getChoice()
+    +getUserInfo()
+    +getSeatInfo()
+  }
+
+  class DataHandler {
     +String[] bookedSeats
     +String[] availableSeats
     +String[] allSeats
@@ -70,7 +63,7 @@ classDiagram
     +getSeatInformation(String[])
   }
 
-  class FileHandler{
+  class FileHandler {
     -String rootPath
     -File folderPath
     -Ticket ticket
@@ -78,7 +71,7 @@ classDiagram
     -writeToFile(boolean)
   }
 
-  class Ticket{
+  class Ticket {
     -String row
     -String seat
     -double price
@@ -88,7 +81,7 @@ classDiagram
     +getTickets(String[][], double)
   }
 
-  class Person{
+  class Person {
     -String name
     -String surname
     -String email
@@ -97,7 +90,7 @@ classDiagram
     +getEmail()
   }
 
-  class Functions{
+  class Functions {
     +String[] rows
     +String[] columns
     +String[] shortRows
@@ -112,6 +105,7 @@ classDiagram
     +printArrays(String[])
     +formatTicket(String[])
   }
+
   
 
 ```
