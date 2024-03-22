@@ -38,12 +38,16 @@ pie
 
 classDiagram
   W20530884_20232268 <|--|> DataHandler
-  W20530884_20232268 <|-- Functions
+
+  Functions --|> W20530884_20232268
+  Functions --|> DataHandler
+  Functions --|> Ticket
+  Functions --|> FileHandler
 
   Person <|-- W20530884_20232268
   Ticket <|--|> W20530884_20232268
-  Ticket <|--* Person
-  FileHandler <|--* Ticket
+  Ticket o-- Person
+  FileHandler *-- Ticket
 
   W20530884_20232268 : +String[] args
   W20530884_20232268: +getChoice()
@@ -108,11 +112,11 @@ classDiagram
     +printArrays(String[])
     +formatTicket(String[])
   }
+  
 
 ```
 
 ---
-
 
 
 
