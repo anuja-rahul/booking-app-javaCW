@@ -37,13 +37,13 @@ pie
 ```mermaid
 
 classDiagram
-  W20530884_20232268 <|-- DataHandler
+  W20530884_20232268 <|--|> DataHandler
   W20530884_20232268 <|-- Functions
-  W20530884_20232268 <|-- FileHandler
-  W20530884_20232268 <|-- Person
-  W20530884_20232268 <|-- Ticket
-  Ticket <|-- Person
-  FileHandler <|-- Ticket
+
+  Person <|-- W20530884_20232268
+  Ticket <|--|> W20530884_20232268
+  Ticket <|--* Person
+  FileHandler <|--* Ticket
 
   W20530884_20232268 : +String[] args
   W20530884_20232268: +getChoice()
