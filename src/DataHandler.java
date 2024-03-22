@@ -2,6 +2,7 @@
  * The java class DataHandler holds the records of each ticket, purchase, status and
  * contains the methods to modify and update each of these records. <br>
  * {@link #initRecords(boolean) initRecords} <br>
+ * {@link #getBookedSeats() #getBookedSeats} <br>
  * {@link #updateSeatRecord(String[], boolean) updateSeatRecord} <br>
  * {@link #updateTicketRecord(String[], boolean) updateTicketRecord} <br>
  * {@link #getTotalSales() getTotalSales} <br>
