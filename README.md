@@ -27,15 +27,17 @@ packages were used.
 ```mermaid
 
 classDiagram
-  W20530884_20232268 <|--|> DataHandler
+    note "This is a class diagram representation of the booking app"
+    direction RL
+  W20530884_20232268 <--> DataHandler
 
-  Functions --|> W20530884_20232268
-  Functions --|> DataHandler
-  Functions --|> Ticket
-  Functions --|> FileHandler
+  Functions --> W20530884_20232268
+  Functions --> DataHandler
+  Functions --> Ticket
+  Functions --> FileHandler
 
-  Person <|-- W20530884_20232268
-  Ticket <|--|> W20530884_20232268
+  Person <-- W20530884_20232268
+  Ticket <--> W20530884_20232268
   Ticket o-- Person
   FileHandler *-- Ticket
 
