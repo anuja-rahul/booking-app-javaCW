@@ -255,6 +255,13 @@ public class W20530884_20232268 {
 
 
 /*
-For further references and documentation visit:
-    https://github.com/anuja-rahul/booking-app-javaCW
+- For further references, documentation and class diagrams visit:
+             https://github.com/anuja-rahul/booking-app-javaCW/blob/main/README.md
+
+- java records:
+            https://docs.oracle.com/en/java/javase/22/language/records.html#GUID-6699E26F-4A9B-4393-A08B-1E47D4B2D263
+            https://docs.oracle.com/javase/specs/jls/se22/html/jls-8.html#jls-8.10
+
+-java documentation
+            https://docs.oracle.com/javase/specs/jls/se22/html/jls-3.html#jls-3.7
  */
