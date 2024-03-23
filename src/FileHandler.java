@@ -40,6 +40,15 @@ public class FileHandler {
         this.ticket = ticket;
     }
 
+    // Getters and setters were implemented as per the rules of coursework
+    // Even though there are no use cases in this particular class
+    public Ticket getTicket() {
+        return ticket;
+    }
+    public void setTicket(Ticket ticket) {
+        this.ticket = ticket;
+    }
+
     /**
      * Checks for a specific directory  and if it doesn't exist, <br>
      * creates the directory each time an object is instantiated.

@@ -68,9 +68,14 @@ public class DataHandler {
     }
 
     // Getters
-
     public String[] getBookedSeats(){
         return this.bookedSeats;
+    }
+
+    // Setters were implemented as per the rules of coursework
+    // Even though there are no use cases in this particular class
+    public void setBookedSeats(String[] bookedSeats) {
+        this.bookedSeats = bookedSeats;
     }
 
     /**

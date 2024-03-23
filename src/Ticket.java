@@ -28,6 +28,22 @@ public record Ticket(String row, String seat, double price, Person person) {
     public Ticket {
     }
 
+    // Getters were implemented as per the rules of coursework
+    // Even though there are no use cases in this particular record
+    // And since Ticket is a record there will be no setters
+    public String getRow() {
+        return row;
+    }
+    public String getSeat() {
+        return seat;
+    }
+    public double getPrice() {
+        return price;
+    }
+    public Person getPerson() {
+        return person;
+    }
+
     /**
      * when the column is given, sorts through the class attribute
      * ticketPrices and returns the price of the ticket.
