@@ -34,23 +34,25 @@ classDiagram
     
     direction RL
     
-  W20530884_20232268 <--> DataHandler
-
-  Functions --> W20530884_20232268
-  Functions --> DataHandler
-  Functions --> Ticket
-  Functions --> FileHandler
-
-  Person <-- W20530884_20232268
-  Ticket <--> W20530884_20232268
-  Ticket o-- Person
+  W20530884_20232268_booking_app -- Ticket
+  Functions <.. DataHandler
+  Functions <.. Ticket
+  Functions <.. FileHandler
+  W20530884_20232268_booking_app ..> DataHandler
+  W20530884_20232268_booking_app -- Person
+  W20530884_20232268_booking_app ..> Functions
+  Ticket *-- Person
   FileHandler *-- Ticket
-
-  W20530884_20232268 : +String[] args
-  W20530884_20232268: -getChoice(int)
-  W20530884_20232268: -getUserInfo()
-  W20530884_20232268: -getSeatInfo()
-  W20530884_20232268: -manageTicket(String, String, Person, DataHandler, boolean)
+  
+  W20530884_20232268_booking_app: +String[] args
+  W20530884_20232268_booking_app: -buySeat(DataHandler)
+  W20530884_20232268_booking_app: -cancelSeat(DataHandler)
+  W20530884_20232268_booking_app: -printTickets(DataHandler)
+  W20530884_20232268_booking_app: -searchTickets(DataHandler)
+  W20530884_20232268_booking_app: -getChoice(int)
+  W20530884_20232268_booking_app: -getUserInfo()
+  W20530884_20232268_booking_app: -getSeatInfo()
+  W20530884_20232268_booking_app: -manageTicket(String, String, Person, DataHandler, boolean)
   
   class DataHandler{
     +String[] bookedSeats
@@ -85,7 +87,9 @@ classDiagram
     +Person person
     +getTicketPrice(String)
     +generateTicket()
+    +saveTicket(boolean)
     +getTickets(String[][], double)
+    +getTicket()
   }
 
   class Person{
@@ -95,6 +99,7 @@ classDiagram
     +getName()
     +getSurname()
     +getEmail()
+    +getPerson()
   }
 
   class Functions{
