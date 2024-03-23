@@ -3,7 +3,9 @@
  * handles the generation and pricing of tickets. <br><br>
  * {@link #getTicketPrice(String) getTicketPrice} <br>
  * {@link #generateTicket() generateTicket} <br>
- * {@link #getTickets(String[][], double) getTickets} <br><br>
+ * {@link #saveTicket(boolean) saveTickets} <br>
+ * {@link #getTickets(String[][], double) getTickets} <br>
+ * {@link #getTicket() getTicket} <br><br>
  * Usage:
  * <pre>
  *     {@code
@@ -26,23 +28,22 @@ public record Ticket(String row, String seat, double price, Person person) {
      * @param price  price of the ticket
      * @param person a new Person object of the current user
      */
-    public Ticket {
-    }
+    public Ticket {}
 
     // Getters were implemented as per the rules of coursework
     // Even though there are no use cases in this particular record
     // And since Ticket is a record there will be no setters
     public String getRow() {
-        return row;
+        return this.row;
     }
     public String getSeat() {
-        return seat;
+        return this.seat;
     }
     public double getPrice() {
-        return price;
+        return this.price;
     }
     public Person getPerson() {
-        return person;
+        return this.person;
     }
 
     /**
@@ -80,7 +81,17 @@ public record Ticket(String row, String seat, double price, Person person) {
     }
 
     /**
-     * Generates and returns a 2D array of all the ticket sales and user data
+     * Creates/deletes a ticket record text file depending on user choice
+     * @param write
+     *          boolean choice of the user, if true creates a file and vise versa
+     */
+    public void saveTicket(boolean write){
+        FileHandler newTicketFile = new FileHandler(this);
+        newTicketFile.writeToFile(write);
+    }
+
+    /**
+     * Generates and returns a 2D array of all the ticket sales and user information
      * @param ticketRecord
      *                  Class attribute ticketRecord of the DataHandler class
      * @param totalSales
@@ -100,6 +111,16 @@ public record Ticket(String row, String seat, double price, Person person) {
             }
         }
         return ticketContents;
+    }
+
+    // As per the requirements of task 8
+    // A method that prints out the ticket object and the person object within it.
+    /**
+     * Prints out a formatted text containing all the attributes of a Ticket object
+     */
+    public void getTicket(){
+        System.out.println("\n" + this.seat + "\n" + this.price);
+        this.person.getPerson();
     }
 
 }

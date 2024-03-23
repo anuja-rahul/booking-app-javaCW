@@ -10,13 +10,17 @@ Date: 09/03/2024
 import java.util.*;
 
 /**
- * W20530884_20232268 class of the booking-app package.<br><br>
- * The class (W20530884_20232268) includes: <br><br>
+ * W20530884_20232268_booking_app class of the booking-app package.<br><br>
+ * The class (W20530884_20232268_booking_app) includes: <br><br>
+ * {@link #buySeat(DataHandler) buySeat} <br>
+ * {@link #cancelSeat(DataHandler) cancelSeat} <br>
+ * {@link #printTickets(DataHandler) printTickets} <br>
+ * {@link #searchTickets(DataHandler) searchTickets} <br>
  * {@link #getChoice(int) getChoice} <br>
  * {@link #getUserInfo() getUserInfo} <br>
  * {@link #getSeatInfo() getSeatInfo} <br>
- * {@link #manageTicket(String, String, Person, DataHandler, boolean) manageTicket} <br>
- * <br> <br>
+ * {@link #manageTicket(String, String, Person, DataHandler, boolean) manageTicket} <br><br>
+ *
  * For additional information, visit the
  * <a href="https://github.com/anuja-rahul/booking-app-javaCW/blob/main/README.md">Documentation</a> or
  * <a href="../Documentation/index.html">Javadoc</a>. <br><br>
@@ -24,7 +28,7 @@ import java.util.*;
  * @author Anuja Rahul Gunasinghe
  * @version 1.0
  */
-public class W20530884_20232268 {
+public class W20530884_20232268_booking_app {
 
     /**
      * Handles every input and output
@@ -34,10 +38,12 @@ public class W20530884_20232268 {
 
         String[] bookedSeats = {};
 
-        // construct a new DataHandler object to store all bookings and seat data
+        // Initializes a new DataHandler object to store all bookings and seat data
         DataHandler dataBase = new DataHandler(bookedSeats);
         dataBase.seatRecord = dataBase.initRecords(true);
         dataBase.ticketRecord = dataBase.initRecords(false);
+
+        System.out.println("\nWelcome to the Plane Management application !\n");
 
         int choice = -1;
         while(choice !=0){
@@ -69,60 +75,16 @@ public class W20530884_20232268 {
                         switch (choice){
 
                             case 1:
-                                String[] userInfo = getUserInfo();
-                                Person person = new Person(userInfo[0], userInfo[1], userInfo[2]);
-                                // newSeat = {row, column} ex: {"A", "1"}
-                                String[] newSeat = getSeatInfo();
-                                // newBooking = {row column} ex: {"A1"}
-                                String[] newBooking = {newSeat[0] + newSeat[1]};
-
-                                if (Functions.validateSeatInputs(newSeat[0], newSeat[1])){
-                                    if (Functions.checkArrayValues(newBooking[0], dataBase.availableSeats)){
-                                        dataBase.addNewBookedSeat(newBooking);
-                                        dataBase.updateAvailableSeats(true);
-                                        dataBase.updateSeatRecord(newBooking, true);
-
-                                        Ticket ticket = manageTicket(newSeat[1], newSeat[0], person, dataBase, true);
-                                        FileHandler newTicketFile = new FileHandler(ticket);
-                                        newTicketFile.writeToFile(true);
-                                        System.out.println("\nBooking Successful !\n");
-                                    } else {
-                                        System.out.println("\nSeat Unavailable !\n");
-                                    }
-                                }else {
-                                    System.out.println("\nInvalid Seat !\n");
-                                }
+                                buySeat(dataBase);
                                 break;
 
                             case 2:
-                                // removeSeat = {row, column} ex: {"A", "1"}
-                                String[] removeSeat = getSeatInfo();
-                                // removeBooking = {row column} ex: {"A1"}
-                                String[] removeBooking = {removeSeat[0] + removeSeat[1]};
-
-                                if (Functions.validateSeatInputs(removeSeat[0], removeSeat[1])){
-                                    if (Functions.checkArrayValues(removeBooking[0], dataBase.getBookedSeats())){
-                                        // double price = Ticket.getTicketPrice(removeSeat[1]);
-                                        // System.out.println("\n" + price + "\n");
-                                        dataBase.updateAvailableSeats(false);
-                                        dataBase.removeBookedSeat(removeBooking);
-                                        dataBase.updateSeatRecord(removeBooking, false);
-
-                                        Person delPerson = new Person("name", "surname", "email");
-                                        Ticket ticket = manageTicket(removeSeat[1], removeSeat[0], delPerson, dataBase, false);
-                                        FileHandler newTicketFile = new FileHandler(ticket);
-                                        newTicketFile.writeToFile(false);
-
-                                    } else {
-                                        System.out.println("\nSeat not booked !\n");
-                                    }
-                                }else {
-                                    System.out.println("\nInvalid Seat !\n");
-                                }
+                                cancelSeat(dataBase);
                                 break;
 
                             case 3:
-                                System.out.println("\nNext available seat is: " + dataBase.getFirstAvailableSeat() + "\n");
+                                System.out.println("\nNext available seat is: " +
+                                        dataBase.getFirstAvailableSeat() + "\n");
                                 break;
 
                             case 4:
@@ -130,23 +92,11 @@ public class W20530884_20232268 {
                                 break;
 
                             case 5:
-                                double totalSales = dataBase.getTotalSales();
-                                Functions.printArrays(Ticket.getTickets(dataBase.ticketRecord, totalSales));
-
+                                printTickets(dataBase);
                                 break;
 
                             case 6:
-                                String[] checkSeat = getSeatInfo();
-                                String[] seatStatus = dataBase.getSeatInformation(checkSeat);
-                                if (seatStatus.length == 1){
-                                    System.out.println("\n" + seatStatus[0] + "\n");
-                                }else {
-                                    System.out.println("\nTicket Information\n__________________\n");
-                                    String ticketContent = Functions.formatTicket(seatStatus);
-                                    System.out.println(ticketContent + "\n\n");
-
-
-                                }
+                                searchTickets(dataBase);
                                 break;
                         }
                     }else{
@@ -159,6 +109,93 @@ public class W20530884_20232268 {
             } catch (InputMismatchException e) {
                 System.out.println("\nInput out of range !\n");
             }
+        }
+    }
+
+    /**
+     * Handles everything related to buying a seat
+     * @param dataBase
+     *              object instance of the class DataHandler
+     */
+    private static void buySeat(DataHandler dataBase){
+        String[] userInfo = getUserInfo();
+        Person person = new Person(userInfo[0], userInfo[1], userInfo[2]);
+        // newSeat = {row, column} ex: {"A", "1"}
+        String[] newSeat = getSeatInfo();
+        // newBooking = {row column} ex: {"A1"}
+        String[] newBooking = {newSeat[0] + newSeat[1]};
+
+        if (Functions.validateSeatInputs(newSeat[0], newSeat[1])){
+            if (Functions.checkArrayValues(newBooking[0], dataBase.availableSeats)){
+                dataBase.addNewBookedSeat(newBooking);
+                dataBase.updateAvailableSeats(true);
+                dataBase.updateSeatRecord(newBooking, true);
+
+                Ticket ticket = manageTicket(newSeat[1], newSeat[0], person, dataBase, true);
+                ticket.saveTicket(true);
+                System.out.println("\nBooking Successful !\n");
+            } else {
+                System.out.println("\nSeat Unavailable !\n");
+            }
+        }else {
+            System.out.println("\nInvalid Seat !\n");
+        }
+    }
+
+    /**
+     * Handles everything related to removing a seat booking
+     * @param dataBase
+     *              object instance of the class DataHandler
+     */
+    private static void cancelSeat(DataHandler dataBase){
+        // removeSeat = {row, column} ex: {"A", "1"}
+        String[] removeSeat = getSeatInfo();
+        // removeBooking = {row column} ex: {"A1"}
+        String[] removeBooking = {removeSeat[0] + removeSeat[1]};
+
+        if (Functions.validateSeatInputs(removeSeat[0], removeSeat[1])){
+            if (Functions.checkArrayValues(removeBooking[0], dataBase.getBookedSeats())){
+                // double price = Ticket.getTicketPrice(removeSeat[1]);
+                // System.out.println("\n" + price + "\n");
+                dataBase.updateAvailableSeats(false);
+                dataBase.removeBookedSeat(removeBooking);
+                dataBase.updateSeatRecord(removeBooking, false);
+
+                Person delPerson = new Person("name", "surname", "email");
+                Ticket ticket = manageTicket(removeSeat[1], removeSeat[0], delPerson, dataBase, false);
+                ticket.saveTicket(false);
+            } else {
+                System.out.println("\nSeat not booked !\n");
+            }
+        }else {
+            System.out.println("\nInvalid Seat !\n");
+        }
+    }
+
+    /**
+     * Manages and connects every required method related to sorting and printing out the tickets
+     * @param dataBase
+     *              object instance of the class DataHandler
+     */
+    private static void printTickets(DataHandler dataBase){
+        double totalSales = dataBase.getTotalSales();
+        Functions.printArrays(Ticket.getTickets(dataBase.ticketRecord, totalSales));
+    }
+
+    /**
+     * Searches and print out the information about the status of seats
+     * @param dataBase
+     *              object instance of the class DataHandler
+     */
+    private static void searchTickets(DataHandler dataBase){
+        String[] checkSeat = getSeatInfo();
+        String[] seatStatus = dataBase.getSeatInformation(checkSeat);
+        if (seatStatus.length == 1){
+            System.out.println("\n" + seatStatus[0] + "\n");
+        }else {
+            System.out.println("\nTicket Information\n__________________\n");
+            String ticketContent = Functions.formatTicket(seatStatus);
+            System.out.println(ticketContent + "\n\n");
         }
     }
 

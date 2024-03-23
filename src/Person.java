@@ -1,5 +1,6 @@
 /**
- * The record Person holds the relevant user information after the purchasing of a ticket.
+ * The record Person holds the relevant user information after the purchasing of a ticket.<br><br>
+ * {@link #getPerson() getPerson}
  * <br><br>
  *
  * Usage:
@@ -23,7 +24,6 @@ public record Person(String name, String surname, String email) {
     public Person {}
 
     // Getters
-
     /**
      * gets the name attribute of the Person object
      * @return
@@ -53,4 +53,12 @@ public record Person(String name, String surname, String email) {
 
     // And since Person is a record there will be no setters
 
+    // As per the requirements of task 7
+    // A method that prints out the person object
+    /**
+     * Prints out a formatted text containing all the attributes of a Person object
+     */
+    public void getPerson(){
+        System.out.println("\n" + this.name + " " + this.surname + "\n" + this.email);
+    }
 }
