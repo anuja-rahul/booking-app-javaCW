@@ -27,8 +27,13 @@ packages were used.
 ```mermaid
 
 classDiagram
+    
     note "* This is a class diagram representation of the booking app"
+    note "+ public"
+    note "- private"
+    
     direction RL
+    
   W20530884_20232268 <--> DataHandler
 
   Functions --> W20530884_20232268
@@ -46,6 +51,7 @@ classDiagram
   W20530884_20232268: -getUserInfo()
   W20530884_20232268: -getSeatInfo()
   W20530884_20232268: -manageTicket(String, String, Person, DataHandler, boolean)
+  
   class DataHandler{
     +String[] bookedSeats
     +String[] availableSeats
@@ -65,27 +71,27 @@ classDiagram
   }
 
   class FileHandler{
-    -String rootPath
-    -File folderPath
-    -Ticket ticket
+    +String rootPath
+    +File folderPath
+    +Ticket ticket
     -createDirectory()
-    -writeToFile(boolean)
+    +writeToFile(boolean)
   }
 
   class Ticket{
-    -String row
-    -String seat
-    -double price
-    -Person person
+    +String row
+    +String seat
+    +double price
+    +Person person
     +getTicketPrice(String)
     +generateTicket()
     +getTickets(String[][], double)
   }
 
   class Person{
-    -String name
-    -String surname
-    -String email
+    +String name
+    +String surname
+    +String email
     +getName()
     +getSurname()
     +getEmail()
