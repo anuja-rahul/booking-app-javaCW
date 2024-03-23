@@ -113,7 +113,6 @@ public class Functions {
     /**
      * returns string[] array of all the seats.
      * from A1 to D14
-     *
      * @return
      *          a string array of seat ids.
      */

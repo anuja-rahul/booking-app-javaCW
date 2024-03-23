@@ -51,4 +51,6 @@ public record Person(String name, String surname, String email) {
         return this.email;
     }
 
+    // And since Person is a record there will be no setters
+
 }

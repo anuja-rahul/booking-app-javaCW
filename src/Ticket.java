@@ -1,14 +1,15 @@
 /**
  * The record Ticket holds the relevant tickets information and
- * handles the generation and pricing of tickets.
- * <br><br>
- *
+ * handles the generation and pricing of tickets. <br><br>
+ * {@link #getTicketPrice(String) getTicketPrice} <br>
+ * {@link #generateTicket() generateTicket} <br>
+ * {@link #getTickets(String[][], double) getTickets} <br><br>
  * Usage:
  * <pre>
  *     {@code
  *     Ticket ticket = new Ticket(row, seat, price, person);
  *     }
- *     </pre>
+ * </pre>
  *
  * @author Anuja Rahul Gunasinghe
  * @version 1.0
