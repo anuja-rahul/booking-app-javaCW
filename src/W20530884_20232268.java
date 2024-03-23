@@ -39,7 +39,6 @@ public class W20530884_20232268 {
         dataBase.seatRecord = dataBase.initRecords(true);
         dataBase.ticketRecord = dataBase.initRecords(false);
 
-
         int choice = -1;
         while(choice !=0){
             Scanner scan = new Scanner(System.in);
@@ -72,7 +71,6 @@ public class W20530884_20232268 {
                             case 1:
                                 String[] userInfo = getUserInfo();
                                 Person person = new Person(userInfo[0], userInfo[1], userInfo[2]);
-
                                 // newSeat = {row, column} ex: {"A", "1"}
                                 String[] newSeat = getSeatInfo();
                                 // newBooking = {row column} ex: {"A1"}
@@ -149,11 +147,8 @@ public class W20530884_20232268 {
 
 
                                 }
-
                                 break;
                         }
-
-
                     }else{
                         System.out.println("\nClosing !\n");
                         break;
@@ -162,10 +157,9 @@ public class W20530884_20232268 {
                     System.out.println("\nInvalid response !\n");
                 }
             } catch (InputMismatchException e) {
-                System.out.println("\nInput must be in range (0-6)");
+                System.out.println("\nInput out of range !\n");
             }
         }
-
     }
 
     /**
