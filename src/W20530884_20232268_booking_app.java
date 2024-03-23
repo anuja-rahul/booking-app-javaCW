@@ -155,8 +155,6 @@ public class W20530884_20232268_booking_app {
 
         if (Functions.validateSeatInputs(removeSeat[0], removeSeat[1])){
             if (Functions.checkArrayValues(removeBooking[0], dataBase.getBookedSeats())){
-                // double price = Ticket.getTicketPrice(removeSeat[1]);
-                // System.out.println("\n" + price + "\n");
                 dataBase.updateAvailableSeats(false);
                 dataBase.removeBookedSeat(removeBooking);
                 dataBase.updateSeatRecord(removeBooking, false);
