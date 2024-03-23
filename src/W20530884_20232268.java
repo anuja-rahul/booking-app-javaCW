@@ -87,6 +87,7 @@ public class W20530884_20232268 {
                                         Ticket ticket = manageTicket(newSeat[1], newSeat[0], person, dataBase, true);
                                         FileHandler newTicketFile = new FileHandler(ticket);
                                         newTicketFile.writeToFile(true);
+                                        System.out.println("\nBooking Successful !\n");
                                     } else {
                                         System.out.println("\nSeat Unavailable !\n");
                                     }
@@ -222,7 +223,7 @@ public class W20530884_20232268 {
         String currentRow = String.valueOf(row).toUpperCase();
 
         System.out.print("\nEnter the column (1-14): ");
-        char column = scan.next().charAt(0);
+        int column = scan.nextInt();
         String currentColumn = String.valueOf(column);
 
         return new String[]{currentRow, currentColumn};
