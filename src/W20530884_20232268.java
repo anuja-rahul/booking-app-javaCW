@@ -10,16 +10,16 @@ Date: 09/03/2024
 import java.util.*;
 
 /**
- * W20530884_20232268 class for booking-app package.<br>
- * The class (W20530884_20232268) includes: <br>
+ * W20530884_20232268 class of the booking-app package.<br><br>
+ * The class (W20530884_20232268) includes: <br><br>
  * {@link #getChoice(int) getChoice} <br>
  * {@link #getUserInfo() getUserInfo} <br>
  * {@link #getSeatInfo() getSeatInfo} <br>
  * {@link #manageTicket(String, String, Person, DataHandler, boolean) manageTicket} <br>
- *
  * <br> <br>
  * For additional information, visit the
- * <a href="https://github.com/anuja-rahul/booking-app-javaCW">Documentation</a>.
+ * <a href="https://github.com/anuja-rahul/booking-app-javaCW/blob/main/README.md">Documentation</a> or
+ * <a href="../Documentation/index.html">Javadoc</a>. <br><br>
  *
  * @author Anuja Rahul Gunasinghe
  * @version 1.0
