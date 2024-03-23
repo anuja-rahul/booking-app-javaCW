@@ -23,12 +23,12 @@ packages were used.
 ![Mermaid](https://img.shields.io/badge/Mermaid-000?style=for-the-badge&logo=mermaid)
 ![Markdown](https://img.shields.io/badge/Markdown-000?style=for-the-badge&logo=markdown)
 
+#### Class diagram representation of the booking app
 
 ```mermaid
 
 classDiagram
     
-    note "* This is a class diagram representation of the booking app"
     note "+ public"
     note "- private"
     
