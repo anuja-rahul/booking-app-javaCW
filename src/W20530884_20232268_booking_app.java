@@ -157,8 +157,8 @@ public class W20530884_20232268_booking_app {
         if (Functions.validateSeatInputs(removeSeat[0], removeSeat[1])){
             if (!Functions.checkArrayValues(removeBooking[0], dataBase.availableSeats)){
 
-                dataBase.updateAvailableSeats(false);
                 dataBase.removeBookedSeat(removeBooking);
+                dataBase.updateAvailableSeats(false);
                 dataBase.updateSeatRecord(removeBooking, false);
 
                 Person delPerson = new Person("name", "surname", "email");
