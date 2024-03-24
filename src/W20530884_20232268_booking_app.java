@@ -176,7 +176,7 @@ public class W20530884_20232268_booking_app {
     /**
      * Manages and connects every required method related to sorting and printing out the tickets
      * @param dataBase
-     *              object instance of the class DataHandler
+     *             object instance of the class DataHandler
      */
     private static void printTickets(DataHandler dataBase){
         double totalSales = dataBase.getTotalSales();
