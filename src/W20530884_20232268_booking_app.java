@@ -127,6 +127,7 @@ public class W20530884_20232268_booking_app {
 
         if (Functions.validateSeatInputs(newSeat[0], newSeat[1])){
             if (Functions.checkArrayValues(newBooking[0], dataBase.availableSeats)){
+
                 dataBase.addNewBookedSeat(newBooking);
                 dataBase.updateAvailableSeats(true);
                 dataBase.updateSeatRecord(newBooking, true);
@@ -155,6 +156,7 @@ public class W20530884_20232268_booking_app {
 
         if (Functions.validateSeatInputs(removeSeat[0], removeSeat[1])){
             if (!Functions.checkArrayValues(removeBooking[0], dataBase.availableSeats)){
+
                 dataBase.updateAvailableSeats(false);
                 dataBase.removeBookedSeat(removeBooking);
                 dataBase.updateSeatRecord(removeBooking, false);
