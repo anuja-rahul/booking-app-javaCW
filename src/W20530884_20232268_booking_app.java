@@ -155,7 +155,7 @@ public class W20530884_20232268_booking_app {
         String[] removeBooking = {removeSeat[0] + removeSeat[1]};
 
         if (Functions.validateSeatInputs(removeSeat[0], removeSeat[1])){
-            if (!Functions.checkArrayValues(removeBooking[0], dataBase.availableSeats)){
+            if (Functions.checkArrayValues(removeBooking[0], dataBase.bookedSeats)){
 
                 dataBase.removeBookedSeat(removeBooking);
                 dataBase.updateAvailableSeats(false);
