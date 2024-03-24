@@ -154,7 +154,7 @@ public class W20530884_20232268_booking_app {
         String[] removeBooking = {removeSeat[0] + removeSeat[1]};
 
         if (Functions.validateSeatInputs(removeSeat[0], removeSeat[1])){
-            if (Functions.checkArrayValues(removeBooking[0], dataBase.getBookedSeats())){
+            if (!Functions.checkArrayValues(removeBooking[0], dataBase.availableSeats)){
                 dataBase.updateAvailableSeats(false);
                 dataBase.removeBookedSeat(removeBooking);
                 dataBase.updateSeatRecord(removeBooking, false);
@@ -162,6 +162,7 @@ public class W20530884_20232268_booking_app {
                 Person delPerson = new Person("name", "surname", "email");
                 Ticket ticket = manageTicket(removeSeat[1], removeSeat[0], delPerson, dataBase, false);
                 ticket.saveTicket(false);
+                System.out.println("\nCancellation Successful !\n");
             } else {
                 System.out.println("\nSeat not booked !\n");
             }
