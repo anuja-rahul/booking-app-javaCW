@@ -32,7 +32,7 @@ classDiagram
     note "+ public"
     note "- private"
     
-    direction RL
+    direction LR
     
   W20530884_20232268_booking_app -- Ticket
   Functions <.. DataHandler
@@ -49,10 +49,10 @@ classDiagram
   W20530884_20232268_booking_app: -cancelSeat(DataHandler)
   W20530884_20232268_booking_app: -printTickets(DataHandler)
   W20530884_20232268_booking_app: -searchTickets(DataHandler)
-  W20530884_20232268_booking_app: -getChoice(int)
-  W20530884_20232268_booking_app: -getUserInfo()
-  W20530884_20232268_booking_app: -getSeatInfo()
-  W20530884_20232268_booking_app: -manageTicket(String, String, Person, DataHandler, boolean)
+  W20530884_20232268_booking_app: -getChoice(int) boolean
+  W20530884_20232268_booking_app: -getUserInfo() String[]
+  W20530884_20232268_booking_app: -getSeatInfo() String[]
+  W20530884_20232268_booking_app: -manageTicket(String, String, Person, DataHandler, boolean) Ticket
   
   class DataHandler{
     +String[] bookedSeats
@@ -61,6 +61,7 @@ classDiagram
     +String[][] seatRecord
     +String[][] ticketRecord
     +getBookedSeats() String[]
+    +setBookedSeats(String[])
     +initRecords(boolean) String[][]
     +updateSeatRecord(String[], boolean) 
     +updateTicketRecord(String[], boolean)
@@ -76,6 +77,8 @@ classDiagram
     +String rootPath
     +File folderPath
     +Ticket ticket
+    +getTicket() Ticket
+    +setTicket(Ticket)
     -createDirectory()
     +writeToFile(boolean)
   }
@@ -85,10 +88,14 @@ classDiagram
     +String seat
     +double price
     +Person person
-    +getTicketPrice(String)
-    +generateTicket()
+    +getRow() String
+    +getSeat() String
+    +getPrice() double
+    +getPerson() Person
+    +getTicketPrice(String) double
+    +generateTicket() String[]
     +saveTicket(boolean)
-    +getTickets(String[][], double)
+    +getTickets(String[][], double) String[]
     +getTicket()
   }
 
@@ -96,9 +103,9 @@ classDiagram
     +String name
     +String surname
     +String email
-    +getName()
-    +getSurname()
-    +getEmail()
+    +getName() String
+    +getSurname() String
+    +getEmail() String
     +getPerson()
   }
 
@@ -107,15 +114,15 @@ classDiagram
     +String[] columns
     +String[] shortRows
     +String[] shortColumns
-    +updateArray(String[], String)
-    +removeFromArray(String[], String)
-    +checkArrayValues(String, String[])
-    +getIndex(String[], String)
-    +assignAllSeats()
+    +updateArray(String[], String) String[]
+    +removeFromArray(String[], String) String[]
+    +checkArrayValues(String, String[]) boolean
+    +getIndex(String[], String) int
+    +assignAllSeats() String[]
     +printSeatingPlan(String[][])
-    +validateSeatInputs(String, String)
+    +validateSeatInputs(String, String) boolean
     +printArrays(String[])
-    +formatTicket(String[])
+    +formatTicket(String[]) String
   }
 
   
