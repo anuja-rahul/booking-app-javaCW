@@ -1,10 +1,10 @@
-![Java](https://img.shields.io/badge/java-000?style=for-the-badge&logo=openjdk&logoColor=f89820)
-&nbsp;&nbsp;
 ![GitHub](https://img.shields.io/github/forks/anuja-rahul/markdown-everything?style=for-the-badge&logo=github)
 &nbsp;&nbsp;
 ![GitHub](https://img.shields.io/github/license/anuja-rahul/markdown-everything?style=for-the-badge&logo=github)
 &nbsp;&nbsp;
-![GitHub](https://img.shields.io/github/stars/anuja-rahul/markdown-everything?style=for-the-badge&logo=github)
+![GitHub](https://img.shields.io/github/stars/anuja-rahul/markdown-everything?style=for-the-badge&logo=github)  
+
+![Java](https://img.shields.io/badge/java-000?style=for-the-badge&logo=openjdk&logoColor=f89820)
 
 ### Booking App (SD-02) `coursework`  
 
